@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var num2 = 11; // 声明变量 num2 并初始化赋值 11
+      var num1 = 12;
+      var result; // 声明变量 result 初始化赋值 undefined
+      // 表达式  result 接受表达式返回加过
+      result = num1 + num2; // num1 操作数 ---> 用的是 num1的赋值  num2操作数
+
+      console.log(result);
+
+      //     算术运算符  + 0 * /  %取余数 ++ --
+      // -----> 用来做数学运算的。
+      console.log(10 % 3);
+      var x, y, z;
+      x = 1;
+      y = 7;
+      z = 12;
+
+      console.log(z + y - ((x * x) % 3));
+      console.log(x++);
+      console.log(++x);
+      // 比较（关系）运算符  == !=
+      // ---->注意：比较运算符返回结果为 true 为false
+      console.log(1 > 2);
+      // = 没有比较租用 只有赋值作用
+      // == 判断左右两边 大小是否相等
+      // === 全等 即使看大小也看类型
+      console.log("1" == 1); // true
+      console.log("1" === 1); // false
+      //   不等于
+      console.log("1" != 1);
+      // 逻辑运算符
+      // ---> 链接左右两边的表达式
+      // ----> 只要逻辑运算符 返回结果只能是 true  false
+
+      //  && 且 左右都是真 返回 true
+      //  || 或 一真为真
+      //  !  非 你真我假  你架我真
+
+      console.log(!(1 > 2));
+      console.log("yufei" == "yufei" && 2 > 1);
+
+      // 赋值运算符
+      var a = 12;
+      a += 1; // a = a + 1
+      a -= 1; // a = a-1
+      a = -1; // a 赋值为-1
+      a *= 2; //a = a*2
+      a /= 2; //a = a/2
+      a %= 2; //a = a%2
+
+      // 连接运算符  + 拼接
+      // ---》 只要有字符串 string  + 就是连接运算符
+
+      console.log(1+'1') // 11 拼接
+    </script>
+  </body>
+</html>
