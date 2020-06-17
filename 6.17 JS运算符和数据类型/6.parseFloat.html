@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // parsetFloat() 将其他类型数据转化为浮点型
+        // 忽略前面0 找到
+        // 第一位不是数字  NaN
+        // 空字符NaN
+        // 第二位小数点后面无效
+        console.log(parseFloat('-5.9'));// -5.9
+        console.log(parseFloat('001'));// 1
+        console.log(parseFloat('00.1'));// 0.1
+        console.log(parseFloat('00.1.6'));// 0.1
+        console.log(parseFloat(''));// NaN
+        console.log(parseFloat('123aaaaa'));// 123
+        
+        console.log(parseFloat('1.23e7'));// 123
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var res=''==[];
+        // res = '' == ''
+        // res = 0 == 0
+        // res true
+        console.log(res);
+        
+        var res = '' === []
+
+        // 字符串与字符串进行比较时
+        // 1.不看长度
+        // 2.第一个字符与第一个字符的编码进行比较
+        var res = '123'>'顾'
+        // res=1>'顾'.charCodeAt()
+        // res=false
+
+        console.log('顾'.charCodeAt());
+        console.log(res);
+
+        var res=[]>{}
+        // res = ''> '[object Object]'
+        // res = 0 > NaN
+        // res = false
+        console.log(res);
+        console.log(Number({}))
+    </script>
+</body>
+</html>

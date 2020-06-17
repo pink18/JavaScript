@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1:在js底层 ，什么数据可以进行运算？
+        // 2：为什么会有隐士转化
+
+        // 只有基本类型的数据才能进行运算 
+        // 所有引用类型的数据，需要运算时候；先需要转化为基本类型数据；再运算
+        // 所有引用类型数据只能转为字符串。最后再有字符串转为其他类型；
+
+        // 因为浏览器默认数就是字符串；所以只能转字符串
+        // alert([1,2,4])   // 1，2，4
+   
+        // alert({
+        //     name:"yanqi",
+        //     age:12
+        // })   //  [object Object]
+
+        // 再默认隐士转化中；素有的对象都转化再   '[object Object]'
+
+        alert(function(){}) // funcion(){}
+        // 函数最后 也转为字符串 写啥转啥
+    </script>
+</body>
+</html>

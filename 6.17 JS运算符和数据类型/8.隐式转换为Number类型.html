@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通过 运算符将 将曹祖数进行的类型转化 
+        // 什么样运算符 可以将其他类型数据转化为 number 类型？  算数运算符 \
+
+
+
+        // 练习；哪个操作数发生隐士转化；转后后结果是啥
+
+        // var res = ('gukun'+'ll')-true+1
+        //     res = 'gukunll' -true +1
+        //     res = NaN -  1 + 1
+        //     res = NaN         
+
+        // var res = true +false 
+
+        // var res = undefined + null  
+        // var res = ['1'] - {};  //  特
+        // console.log(['1']-2)  // -
+        // ['1'] ---string---> '1'  ----number--->1
+
+
+
+        // var res1 = ['111','0',12] + ['11','aaa']  // + 连接符
+        //  ['111','0',12] -->  '111,0,12'   
+        //   + 为连接符号
+        //  ['11','aaa'] ----> '11,aaa'
+        //  res = '11,0,1211,aaa'
+
+
+        // console.log(res1)  // 111,0,1211,aa  字符串
+        var res2 = ['111','0',12] - ['11','aaa']
+        //  ['111','0',12]  ----> '111,0,12' 
+        //  ['11','aaa'] ----->'11,aaa'
+        // --->  '111,0,12'  -   '11,aaa'
+        // --->  NaN -NaN
+        // cosole.log(res2)
+
+        // sting  Object  array  难题：
+
+        var res3 = [] -1;
+        //[] --->''
+        // '' - 1
+        // 0 -1 = -1   
+
+
+     </script> 
+</body>
+</html>

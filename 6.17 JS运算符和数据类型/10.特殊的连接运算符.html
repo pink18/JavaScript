@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // + 什么时候是算数运算符 什么时候是连接运算符
+
+        // 只要操作数为字符串：不论是转化后 还是本身是字符串 都是连接字符串
+
+        // 所有与字符串相加的 都是字符串
+
+        var res=[1,'2'] + 1;
+        // res='1,2' + 1
+        console.log(res)// 1,21
+
+        var res=[1,'gu']+{}
+        console.log(typeof res,res);
+        // '1','gu' + [object Object]
+        // '1','gu[object Object]'
+
+        var res=(true + 123) + ''
+        console.log(typeof res,res);
+        // (1+123)+''
+        // 124
+    </script>
+</body>
+</html>

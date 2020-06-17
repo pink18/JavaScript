@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 转化为整数型数值
+        var str =''
+        console.log();
+        /*
+        1.忽略字符串前面的空格，直到找到第一个非空格字符
+        2.如果第一个字符不是数字，返回NaN
+        3.空字符串，返回NaN
+        4.如果第一个字符是数字，会继续解析第二个字符，直到解析完所有后续字符或遇到了一个非数字字符。
+        5.如果字符串以0x开头且后面跟数字字符，就会将其转为10进制数，同样，八进制也一样。
+        */
+       // parsetFloat() 将其他类型数据转化为浮点型
+        // 忽略前面0 找到
+        // 第一位不是数字或者负号  NaN
+        // 空字符NaN
+        // 0x开头 则转为10进制
+        // 非0非数字字符 返回0
+        console.log(parseInt('070'));
+        console.log(parseInt('70'));
+        console.log(parseInt(070));
+        console.log(parseInt('abc'));
+        console.log(parseInt(00));
+    </script>
+</body>
+</html>

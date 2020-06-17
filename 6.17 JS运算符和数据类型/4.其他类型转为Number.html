@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数据类型直接可以相互转换的 显示 隐示
+        // bool 转 Number
+
+        // 显示转换 Number()   parseInt()   parseFloat()
+        // api 接受什么参数 api的作用是什么
+
+        var x=0.1;
+        var y=0.2;
+        console.log(x+y);// 0.30000000000000004
+        // 注意：不要测试两个浮点数运算结果
+        console.log(x+y==0.3);
+        // 不论是二进制还是其他进制数 最后展示的都是十进制的数
+        console.log(0xf);// 15
+        
+        // Number() 作用：将其他类型的数据转化为数值型
+        // 参数为js数据 不传参默认返回0
+        var res=Number('dd');
+        console.log(res);// NaN
+        console.log(Number(''));// 0
+        console.log(Number(null));// 0
+        console.log(Number());// 0
+        console.log(Number(undefined));// NaN
+
+        //  NaN 其他数据转化数值型 没有匹配数组 那么就是NaN
+        // 1.任何数跟NaN 算数运算都是NaN
+        // 2.任何数跟NaN比较 结果都是false
+        // 3.NaN不等于NaN
+
+        // 字符串转Number
+        // ''---0 非空非数字字符 NaN
+        // 纯数字字符  数字
+
+        
+    </script>
+</body>
+</html>
