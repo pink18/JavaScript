@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        for 循环
+        var i=0;声明变量i 并赋初始值为0
+        i<arr.length 是否运行{}中代码的判断条件
+        i++ 给i重新赋值
+        特点：
+        1.var i=0 只会执行一次
+        2.循环体中代码执行多次
+
+        代码执行顺序
+        1.页面初始化 执行表达式 var i =0 然后执行表达式二 i<arr.length
+        满足条件 执行 循环体{}
+        */
+        var arr =[1,2,3,4,5,7];
+        for(var i=0;i<arr.length;i++){
+            console.log(arr[i]); 
+        }
+    </script>
+</body>
+</html>

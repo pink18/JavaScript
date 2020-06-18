@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log(''==[]&&null==null&&2-1);
+        // console.log(''==[]&&'a'<'y'&&[]>{});
+
+        // var res = []==='' && (1+2)*1 && 'a'>'b';
+        //  res = false
+        var res = {} && 'qer'
+        /*
+        && 运算符的 运算顾虑
+        1；从左往右依次运算，第一个是true  进行下一个；遇到第一个false 时候；返回false 
+        如果一直都没有false 最后一个是表达式；返回 表达式运算结果；
+        左后一个如果是js 数据直接返回数据
+        */
+
+        // var a = 20;
+        // var res = (a % 4 == 0 && a % 100 != 0) && a % 400 == 0;
+        //     res = (0 == 0 && 20 % 100 != 0) && 20 % 400 == 0;
+        //     res = (true && 20 % 100 != 0) && 20 % 400 == 0;
+        //     res = (true && 20 != 0) && 20 % 400 == 0;
+        //     res = (true && true) && 20 % 400 == 0;
+        //     res = true && 20 % 400 == 0;
+        //     res = true && 20 == 0;
+        //     res = true && false;
+        //     res = false
+
+        /*
+        || 运算符的 运算顾虑
+        1；从左往右依次运算，第一个是false  进行下一个；遇到第一个true 时候；返回true 
+        如果一直都没有true 最后一个是表达式；返回 表达式运算结果；
+        左后一个如果是js 数据直接返回数据
+        */
+        // var a = 20
+        // var res =  (a % 4 == 0 || a % 100 != 0) || a % 400 == 0;
+        //     res =  (20 % 4 == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+        //     res =  (true == 0 || 20 % 100 != 0) || 20 % 400 == 0;
+        //     res =  (true || 20% 100 != 0) || 20 % 400 == 0;
+        //     res =  (true) || 20 % 400 == 0;
+        //     res =  true || 20 % 400 == 0;
+        //     res = true
+        
+        // var res = undefined || null  // null 
+        // var res  = null || false  // false
+        // var res = false || '' //  ''
+        // var res = '' || 0  // 0
+
+        // var res = undefined || null || false || '' || 0;      
+        //     res =   null || false || '' || 0 ;
+        //     res =   false || '' || 0 ;
+        //     res =    '' || 0 ;
+        //     res =    0 ;
+        
+        // ! 单目运算 true/false
+        // 第一步 看是不是！
+        // 第二部 将操作数转为布尔类型
+        // 第三步 取反
+        var res = !'' + 1
+        var res = 2>1 && !'ddd'
+
+        console.log(res);
+
+        var res = !{}
+        console.log(res);
+        
+        var res = 1+2+!0
+        //  res = 3+true
+        //  res = 3+1
+        //  res = 4
+        var res1 = !1
+        //  res1 = !true
+        //  res1 = false
+        var res2 = !'ddd'
+        //  res2 = !true
+        //  res2 = false
+        var res3 = !null
+        //  res3 = !false
+        //  res3 = true
+        var res4 = !undefined
+        //  res4 = !false
+        //  res4 = true
+        var res5 = !''
+        //  res5 = !false
+        //  res5 = true
+        var res6 = !NaN
+        //  res6 = !false
+        //  res6 = true
+        var res7 = 2-!'ddd'
+        //  res7 = 2-!true
+        //  res7 = 2-false
+        //  res7 = 2-0
+        //  res7 = 2
+        var res8 = {}>[] && 2>1 || 'dd'>'aa' || !''
+        //  res8 = '[object Object]'>'' && true || true || true
+        //  res8 = true && true || true || true
+        //  res8 = true
+        
+        var res = ('aa'>'')&&!(1<2 || 1-1&&[]>{})&&(''==[])
+        //  res = true && !(true || 0 && ''>'[object Object]')&&(''=='')
+        //  res = true && !(true || flase && false)&&true
+        //  res = true && !(true || false)&&true
+        //  res = true && !true && true
+        //  res = true && false && true
+        //  res = false
+        
+    </script>
+</body>
+</html>

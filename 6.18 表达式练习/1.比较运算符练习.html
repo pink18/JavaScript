@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 比较：大小 相等 具体数字 -->
+    <!-- === !== 操作数不转换 -->
+    <script>
+        // console.log(['111','0',12] + ['11','aaa']);
+        console.log('黑'>'白');
+        // 不同类型才转换 相同类型不转换
+        console.log(undefined==undefined);// true 相同类型数据
+
+        console.log(true>='true')// 1>NaN
+        console.log(null==null);// true
+
+        // null 值等于 undefined null
+        console.log('' == null);// false
+        console.log([] == null);// false
+        console.log('ddd' == null);// false
+        console.log({} == null);// false
+        console.log(0 == null);// false
+        console.log(undefined == null)// true 意义相同
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // ++ 给自己+1
+        // var x=1;
+        // // 1.先给y赋值 x=1 再让x自增1
+        // var y =x++; // 先赋值 再运算
+        // console.log(y);
+
+        // var a=1;
+        // // 1.先让a自增1 再给b赋值
+        // var b=++a; // 先运算 后附值
+        // console.log(b);
+
+        var c=1;
+        var d=2;
+        var z=++c+c++;
+        console.log(z);
+        
+        var l=1;
+        var q=2;
+        var w=''
+        var res=(++l+l++)-3*(q++-++q)-q++
+        //  res=4-3(2-4)-4
+        //  res=4+6-4
+        //  res=6
+        
+        console.log(res);
+        
+    </script>
+</body>
+</html>
