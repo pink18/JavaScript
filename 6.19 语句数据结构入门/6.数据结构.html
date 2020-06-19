@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+        </div>
+        <div>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        // 数组中 放的是相同的数据类型 要么是数组 对象或者字符串
+        // 对象中存放的是不同的数据类型结构
+        // 每一个数组都是有意义的 既要让数据结构符合html结构 又要让意义相符合
+
+        // 根据页面结构 分析数据结构
+
+        // 在js中 轮播图数据存在方式
+        var swipers = [
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg'
+        ]
+
+        // for(var i=0;i<swipers.length;i++){
+        //     document.write(
+        //         `<img src='${swipers[i]}'>`
+        //     )
+        // }
+
+        var nav = [{
+                title: '会员中心',
+                icon: 'iconFont'
+            },
+            {
+                title: '种草专辑',
+                icon: 'iconFont'
+            },
+            {
+                title: '精选品牌',
+                icon: 'iconFont'
+            },
+            {
+                title: '领券中心',
+                icon: 'iconFont'
+            },
+            {
+                title: '签到',
+                icon: 'iconFont'
+            }
+        ]
+
+        var choose = [{
+            title: '精选',
+            notes: '为你推荐'
+        }, {
+            title: '进口',
+            notes: '优质进口'
+        }, {
+            title: '优惠',
+            notes: '特惠好物'
+        }, {
+            title: '新品',
+            notes: '精选新品'
+        }]
+
+        var shop = [{
+            pic: '',
+            title: '短袖衬衣',
+            price: '￥99.0',
+            num: '已售899件'
+        }, {
+            pic: '',
+            title: '短袖衬衣',
+            price: '￥99.0',
+            num: '已售899件'
+        }, {
+            pic: '',
+            title: '短袖衬衣',
+            price: '￥99.0',
+            num: '已售899件'
+        }, {
+            pic: '',
+            title: '短袖衬衣',
+            price: '￥99.0',
+            num: '已售899件'
+        }, {
+            pic: '',
+            title: '短袖衬衣',
+            price: '￥99.0',
+            num: '已售899件'
+        }, {
+            pic: '',
+            title: '短袖衬衣',
+            price: '￥99.0',
+            num: '已售899件'
+        }]
+
+        var header = {
+            banner: [
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg',
+            'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3574127451,3300961108&fm=26&gp=0.jpg'
+            ],
+            items: [{
+                    title: '会员中心',
+                    icon: 'iconFont'
+                },
+                {
+                    title: '种草专辑',
+                    icon: 'iconFont'
+                },
+                {
+                    title: '精选品牌',
+                    icon: 'iconFont'
+                },
+                {
+                    title: '领券中心',
+                    icon: 'iconFont'
+                },
+                {
+                    title: '签到',
+                    icon: 'iconFont'
+                }
+            ]
+        }
+
+        var main ={
+            buy:{
+                title:'限时抢购',
+                time:'03:09:56',
+                notes:'每天10点 限量秒杀',
+                wares:[
+                    {
+                        pic:'',
+                        
+                    },{
+
+                    },{
+
+                    },{
+
+                    }
+                ]
+            }
+        }
+
+        var product=[
+            {
+                title:'精选推荐',
+                list:{
+                    pic:'',
+                    list:[
+                        {
+                            title:'',
+                            list:[
+                                {
+                                    name:'',
+                                    img:''
+                                }
+                            ]
+                        }
+                    ]
+                },
+
+                title:'家用电器',
+                list:{
+                    pic:'',
+                    list:[
+                        {
+                            title:'',
+                            list:[
+                                {
+                                    name:'',
+                                    img:''
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+        
+    </script>
+</body>
+
+</html>
