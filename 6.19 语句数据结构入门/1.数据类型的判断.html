@@ -31,11 +31,14 @@
         // 如何判断一个数据是null
         console.log(null===null);
         
-        // instanceof 判断数据类型 不区分数组对象
-        // 用处 判断一个数据 可能是数组可能是对象时
+        // instanceof 判断数据类型 不能区分对象
+        // instanceof Object 可以判断一个数据是否是数组或对象
+        // instanceof Array 可以判断一个数据是否是数组
         var data = [];
         var res1 = data instanceof Object;
         console.log([] instanceof Object);// true
+        console.log([] instanceof Array);// true
+
         
         var res2=data.constructor===Object||data.constructor===Array;
         console.log(res2);
