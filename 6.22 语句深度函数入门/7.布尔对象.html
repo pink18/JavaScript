@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 其他类型转化为布尔类型的显示转换
+        // 所有布尔类型的数据的constructor 都是Boolean
+        // Boolean() 是js 原生的内置api(函数)
+
+        // 1.创建布尔对象的方式
+        var bool=true;
+        console.log(bool.constructor);
+
+        // 2.通过new Boolean() 创建一个布尔对象 将其他类型数据转化为布尔类型
+        var bool1=new Boolean(true);
+        console.log(bool1);
+        
+        // new 的底层原理是什么？ new js内部做了什么
+    </script>
+</body>
+</html>

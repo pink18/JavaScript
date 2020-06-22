@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 求 1*2*3*4*5...20
+        var sum=1;
+        for(var i=1;i<=20;i++){
+            sum*=i
+        }
+        console.log(sum);
+
+        // 求 1+2+3+4+5...20
+        var result=0;
+        for(var i=1;i<=20;i++){
+            result+=i
+        }
+        console.log(result);
+
+
+        // var rse;
+        // for(var i=0;i<5;i++){
+        //     res=i;
+        // }
+        // console.log(res);
+        // console.log(i);
+
+        // var res='';
+        // for(var i=0;i<5;i++){
+        //     // 循环体中 用+=展示字符串拼接过程
+        //     res+=i;
+        //     console.log(res);// 0 01 012 0123 01234
+        // }
+        // console.log(res);// 01234
+
+        // // 与页面有关的字符串
+        // var h1='';
+        // for(var i=0;i<5;i++){
+        //     h1+=`<h1>这是一个页面</h1>`;
+        // }
+        // document.write(h1);
+
+        // for(var i=0;i<5;i++){
+        //     // for 嵌套 if 可以控制 程序的执行
+        //     if(i<3){
+        //         console.log(i);
+        //     }
+        // }
+
+        // 程序优化 少执行 获取结果
+        for(var i=0;i<5;i++){
+            if(i==1){
+                console.log(i);
+                // break 结束本次循环
+                break;
+            }
+            console.log(i);
+        }
+
+        for(var i=0;i<5;i++){
+            if(i==1){
+                // continue 跳出当前循环，进行下次循环
+                continue;
+            }
+            console.log(i);
+        }
+    </script>
+</body>
+</html>

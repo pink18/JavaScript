@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(parseInt(Math.random()*9+1));
+        
+        console.log(Math.round(Math.random()*6+2));
+
+        console.log(Math.round(Math.random()*90+10));
+
+        // 希望生成 [min,max] 的随机数，公式如下：
+        // max - 期望的最大值
+        // min - 期望的最小值
+        parseInt(Math.random()*(max-min+1)+min,10);
+        Math.floor(Math.random()*(max-min+1)+min);
+    </script>
+</body>
+</html>

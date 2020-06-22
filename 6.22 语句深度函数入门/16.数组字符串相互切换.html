@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['123','456','789'];
+
+        // 将数组变为字符串
+        // 方法一：arr.toString() 将数组变为字符串并返回字符串
+        var res = arr.toString();
+        console.log(arr);
+        console.log(res);
+
+        // 方法二：arr.join() 参数为替换','的内容
+        var res3=arr.join(',');
+        console.log(res3);
+
+        // 将 res字符串 变为数组 newArr
+        // split() 将字符串进行切割 并返回数组
+        // 参数为 被切割字符
+        var newArr =res.split(',');
+        console.log(newArr);
+        
+        var str1='wecec@ubbub@HIUobol@oolnln@@';
+        var res1=str1.split('@');
+        console.log(res1);
+        
+    </script>
+</body>
+</html>
