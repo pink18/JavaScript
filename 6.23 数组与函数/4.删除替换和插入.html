@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1=[1,2,3,4,5,6,7,8,9];
+        // splice(index,length,替换内容) 删除 替换 插入
+        // 参一：从第几个索引值开始
+        // 参二：删除几个元素(包含index)
+        // 参数n：替换或者插入的内容
+
+        // 清空数组 arr.splice(0)
+        // 如果一个参数 表示从第几个索引值开始 删除后面所有元素
+        // 如果两个参数 表示从第几个索引值开始 删除几个元素
+        // 如果三个或多个参数 表示从第几个索引值开始 删除几个就替换几个 或者插入
+        arr1.splice(5,1,'qqq');
+        console.log(arr1);
+    </script>
+</body>
+</html>

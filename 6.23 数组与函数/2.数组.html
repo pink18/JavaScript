@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = ['aa', 123];
+        console.log(arr);
+
+        // 通过构造函数的方式创建数组
+        var arr1 = new Array('aa', 123);
+        console.log(arr1);
+        
+        // 如何往数组中添加元素
+        // 方式一 从尾部添加
+        arr1[arr1.length] = '新增';
+        arr1[arr1.length] = 'aaa';
+
+        // 方式二
+        // push() 作用 从数组的尾部添加数据，参数为被添加的元素
+        arr1.push('api从尾部添加内容');
+
+        // 方式三
+        // unshift() 作用 从数组的头部添加数据，参数为被添加的元素
+        arr1.unshift('从头部');
+        arr1.unshift('无限');
+        arr1.unshift('添加');
+    </script>
+</body>
+
+</html>

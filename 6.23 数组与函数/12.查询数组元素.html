@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 如何判断某个数组中是否含有某个元素
+        var arr=['22','lyx',56,true];
+
+        // 1.方式一：遍历 + if
+        // for(var i=0;i<arr.length;i++){
+        //     if(arr[i]=='lyx'){
+        // 找到数据后 做其他业务
+        //         alert('找到了');
+        //         break;
+        //     }
+        // }
+
+        // 2.方式二
+        // arr.indexOf() 返回数组中元素第一次出现的索引值 如果没有该元素 返回-1
+        var res=arr.indexOf(true);
+        console.log(res);
+        if(res!=-1){
+            alert('找到了');
+        }
+    </script>
+</body>
+</html>
