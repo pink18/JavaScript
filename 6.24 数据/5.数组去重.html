@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,2,3,3,3,4,4,4,4];
+
+        var res = []; //保证 res 中数据不是重复的
+
+        for(var i=0;i<arr.length;i++){
+            if(res.indexOf(arr[i])==-1){
+                res.push(arr[i]); 
+            }
+        }
+        console.log(res);
+         
+
+        // var arr1=[1,2,2,3,3,3,4,4,4,4];
+        // console.log(Array.from(new Set(arr1)));
+         
+    </script>
+</body>
+</html>
