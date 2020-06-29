@@ -22,26 +22,26 @@
         var num = 0;
         return function a() {
           num++;
-          console.log("这就是已给闭包", num);
+          console.log(num);
         };
       }
       // 函数中有函数；并且return 返回的是一个函数,里面的函数访问的函数体中的变量
 
       var bar = fun();   // 怎么实现外部访问内部的；存 a函数指针，内部还是 a 访问fun 的变量
-
+      
     //   var bar = function () {
-    //     console.log("这就是已给闭包", num);
+    //     console.log(num);
     //   };
-      bar();
-      bar();
-      bar()
+      bar();// 1
+      bar();// 2
+      bar();// 3
 
       var bar1=fun();
-      bar1();
-      bar1()
+      bar1();// 1
+      bar1();// 2
       var bar2=fun();
-      bar2();
-      bar2()
+      bar2();// 1
+      bar2();// 2
       // console.log(bar)
     </script>
   </body>
