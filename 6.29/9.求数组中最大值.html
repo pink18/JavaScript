@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,333,44,232,323];
+        console.log(Math.max(...arr));
+        console.log(Math.min(...arr));
+        
+        // for 循环怎么做
+        for(var i=0;i<arr.length;i++){
+            for(var j=i+1;j<arr.length;j++){
+                if(arr[i]<arr[j]){
+                    var a=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=a;
+                }
+            }
+        }
+        console.log(arr[0]);
+        
+    </script>
+</body>
+</html>

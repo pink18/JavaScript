@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fun() {
+            // arguments 类数组 作用：接受实参
+            // 类数组不能使用数组API
+            console.log(arguments);
+            // 如何将一个伪数组变为真数组
+            // 方式一
+            // var arr = [];
+            // for (var i = 0; i < arguments.length; i++) {
+            //     arr.push(arguments[i]);
+            // }
+            // console.log(arr);
+
+            // 方式二
+            // var arr=[...arguments];// es6 中内容展开运算符
+            // console.log(arr);
+
+            // 方式三
+            // Array.from() 将类数组变为真数组 深拷贝
+            // 参数为 类数组 返回值为真数组
+            var arr=Array.from(arguments);
+            console.log(arr);
+            
+            
+        }
+        fun(1, 2, 3)
+    </script>
+</body>
+
+</html>

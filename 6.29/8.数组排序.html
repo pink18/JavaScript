@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数组排序
+        var arr=[5,6,9,31,65,14,10,15];
+
+        // 只要是对数组操作 看是修改原来的数组 还是返回一个新数组
+
+        // 改变原来数组
+        // arr.sort(function(a,b){
+        //     return a-b;
+        // })
+        // console.log(arr);
+        
+        for(var i=0;i<arr.length;i++){
+            // arr[i] // 前面的数据
+            for(var j=i+1;j<arr.length;j++){
+                // arr[j] // 是一个待比较的数据
+                if(arr[i]>arr[j]){
+                    var tmp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=tmp
+                }
+            }
+        }
+        console.log(arr);
+        
+    </script>
+</body>
+</html>
