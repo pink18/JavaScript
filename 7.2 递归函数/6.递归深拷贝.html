@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: '123',
+            list: [{
+                name: '456'
+            }, {
+                name: '789',
+                say: 'qqq'
+            }]
+        }
+
+        var a={}
+        // deepCpoy 实现的是数组或者对象的深层拷贝
+        // 递归深拷贝
+        // function deepCopy(params) {
+
+        //     // 如果是数组
+        //     if (Array.isArray(params)) {
+        //         var res = [];
+        //         for (var i = 0; i < params.length; i++) {
+        //             if (params[i] instanceof Object) {
+        //                 res.push(deepCopy(params[i]));
+        //             } else {
+        //                 res.push(params[i]);
+        //             }
+        //         }
+        //         return res;
+        //     }
+        //     // 如果是对象 进行 对象的拷贝
+        //     if (params.constructor === Object) {
+        //         var res = {};// 声明空对象
+        //         for (var x in params) {
+        //             // 如果是数组或者对象 需要再次拷贝
+        //             if (params[x] instanceof Object) {
+        //                 res[x] = deepCopy(params[x]);
+        //             } else {
+        //                 res[x] = params[x];
+        //                 // params[x] 表示数组或对象
+        //             }
+
+        //         }
+        //         return res;
+        //     }
+        // }
+        // console.log(deepCopy(obj));
+
+            function fun(newobj,oldobj){
+                for(var k in oldobj){
+                    // 判断我们的属性值属于哪种数据类型
+                    // 1.获取属性值 oldobj[k]
+                    var item = oldobj[k];
+                    // 2.判断这个值是否是数组
+                    if(item instanceof Array){
+                        newobj[k]=[];
+                        fun(newobj[k],item);
+                    // 3.判断这个值是否是对象
+                    }else if(item instanceof Object){
+                        newobj[k]={};
+                        fun(newobj[k],item);
+                    // 4.属于简单数据类型
+                    }else{
+                        newobj[k]=item;
+                    }
+                }
+            }
+            fun(a,obj);
+            console.log(a);
+
+        // 面试题 js 基础逻辑问题
+        // 赋值 逻辑 递归 if for 方法封装
+
+        // 如何写与数据类型有关的判断表达式
+    </script>
+</body>
+
+</html>

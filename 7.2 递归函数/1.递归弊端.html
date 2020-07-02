@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1+2+3+4+5
+        function fun(i){
+            if(i==1){
+                return 1
+            }
+            return i+fun(i-1)
+        }
+        console.log(fun(10));
+
+        // 10+fun(9)
+        // 10+9+fun(8)
+        // 10+9+8+fun(7)
+        // 10+9+8+7+fun(6)
+        // 10+9+8+7+6+fun(5)
+        // 10+9+8+7+6+5+fun(4)
+        // 10+9+8+7+6+5+4+fun(3)
+        // 10+9+8+7+6+5+4+3+fun(2)
+        // 10+9+8+7+6+5+4+3+2+fun(1)
+        // 10+9+8+7+6+5+4+3+2+1
+
+        // 最先运行的最后运算结束；最先运行的运算时间最长。性能差
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sort(arr){
+            if(!Array.isArray(arr)){
+                throw new Error('parms must is Array')
+            }
+            if(arguments.length>1){
+                throw new Error('parm.length can is not gt 1');
+            }
+            var arr=arr;
+            for(var i=0;i<arr.length;i++){
+                for(var j=i+1;j<arr.length;j++){
+                    if(arr[i]>arr[j]){
+                        var tmp=arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=tmp;
+                    }
+                }
+            }
+            return arr;
+        }
+        var arr=[1,2,6,35,45,9,5,6];
+        
+        console.log(sort(arr));
+        
+    </script>
+</body>
+</html>

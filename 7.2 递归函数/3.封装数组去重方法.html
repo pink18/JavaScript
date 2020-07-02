@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fun(a) {
+            // 代码规范 错误优先原则
+            if (!Array.isArray(a)) {
+                throw new Error('TypeError');
+            }
+            if (arguments.length > 1) {
+                throw new Error('111');
+            }
+
+            var b = [];
+            for (var i = 0; i < a.length; i++) {
+                if (b.indexOf(a[i]) == -1) {
+                    b.push(a[i]);
+                }
+            }
+            return b;
+
+        }
+        var arr = fun([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]);
+        console.log(arr);
+
+
+        var arr = [1, 2, 2, 3, 3, 3];
+        var arr1 = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr1.indexOf(arr[i]) == -1) {
+                arr1.push(arr[i]);
+            }
+        }
+        console.log(arr1);
+    </script>
+</body>
+
+</html>

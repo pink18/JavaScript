@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Math.round(Math.random(max-min))+min
+
+        /*
+        1.random  作用：求任意两个数之间的随机整数
+        2.怎么用：确定实参的数据类型 数据意义 --> 定形参
+        3.封装
+        */
+        function random(min, max) {
+            if (typeof min==='number'&&typeof max==='number') {
+                return Math.round(Math.random() * (max - min)) + min;
+            } else {
+                throw new Error('TypeError')
+            }
+        }
+
+        console.log(random(1, 10));
+    </script>
+</body>
+
+</html>
