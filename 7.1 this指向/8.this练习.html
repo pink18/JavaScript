@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var num = 1;
+        // var myObject = {
+        //     num: 2,
+        //     add: function () {
+        //         this.num = 3;// myObject.num = 3
+        //         // window 调用
+        //         (function () {
+        //             console.log(this.num);// 1
+        //             this.num = 4;
+        //         })();
+        //         console.log(this.num);// 3
+        //     },
+        //     sub: function () {
+        //         console.log(this.num)
+        //     }
+        // }
+        // myObject.add();
+        // console.log(myObject.num);// 3
+        // console.log(num);// 4
+        // var sub = myObject.sub;
+        // sub();// 4
+
+
+        // var name = 'window'
+        // var person1 = {
+        //     name: 'person1',
+        //     show1: function () {
+        //         console.log(this.name)
+        //     },
+        //     show3: function () {
+        //         return function () {
+        //             console.log(this.name)
+        //         }
+        //     }
+        // }
+        // var person2 = {
+        //     name: 'person2'
+        // }
+
+        // person1.show1() // person1
+        // person1.show1.call(person2) // person2
+
+        // person1.show3()() // window
+        // person1.show3().call(person2) // person2
+        // person1.show3.call(person2)() // window
+
+        // var name = 'window';
+        // //  立即执行函数是 window下调用的
+        // (function () {
+        //     var name = 'yyyyy'
+        //     console.log(this.name);
+        // })()
+
+
+        // var name = 'window'
+        // function fun() {
+        //     (function () {
+        //         var name = '123';
+        //         console.log(this.name) // window.name
+        //     })();
+        // }
+        // fun();
+
+        // function fun() {
+        //     console.log(this);
+
+        //     return function () {
+        //         console.log(this);
+        //     }
+        // }
+        // var obj = {
+        //     say: fun
+        // }
+
+        // obj.say()();
+
+        // 规律 嵌套函数 父函数中this 不等于 子函数this 需要分别判断
+
+
+        // (function () {
+        //     console.log(this);
+        //     return function () {
+        //         console.log(this);
+        //     }
+        // })().call(this);
+
+        // var obj={};
+        // (function () {
+        //     console.log(this);
+        //     return function () {
+        //         console.log(this);
+        //     }
+        // }).call(obj)();
+
+        // var obj={};
+        // (function () {
+        //     console.log(this);
+        //     return function () {
+        //         console.log(this);
+        //     }
+        // })().call(obj);
+
+    </script>
+</body>
+
+</html>

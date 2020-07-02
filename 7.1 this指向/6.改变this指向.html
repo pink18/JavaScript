@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name='window.name'
+        function fun(){
+            var name='fun';
+            console.log(this.name);
+            console.log(arguments);
+            
+        }
+        var a={
+            name:'aaa',
+            fun:fun
+        }
+        var b={
+            name:'bbb',
+            fun:fun,
+            cname:this.name
+        }
+        // fun();
+        // a.fun();
+        // b.fun();
+
+        // call() 改变function函数中 this 指向 触发函数
+        // 参一 指定this指向的对象
+        // 参二~参N 给调用函数 fun 传入实参
+        fun.call(b,'123')
+        // console.log(fun);
+        b.fun.call(this);
+        a.fun.call(window);
+
+        // apply() 改变function函数中 this 指向 触发函数
+        // 参一 指定this指向的对象
+        // 参二 为数组 给调用函数 fun 传入实参
+        b.fun.apply(window,[1,2,3]);
+
+        // bind()() 改变function函数中 this 指向 加上执行符 才能触发函数
+        // 参一 指定this指向的对象
+        a.fun.bind(window)(1,2,3);
+
+        // 思考 call apply bind 的区别
+    </script>
+</body>
+</html>

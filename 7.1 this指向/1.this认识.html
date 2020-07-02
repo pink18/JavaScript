@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button >点击这里</button>
+    <script>
+        // this 是状态机 动态变化的对象 随着作用域改变而改变
+        // this 伴随作用域的产生而产生
+        // 一个没有作用域的语法糖是没有this的
+        // 语法糖：由js代码片段形成的具有功能性的东西
+
+        // 掌握：如何判断this 指向 在什么环境下指向谁
+        // this 只能指向的是对象
+        console.log(this);// 全局下 window
+        
+        // function 方法体中 this 指向谁
+
+        function foo(){
+            console.log(this)// window
+            console.log('window 下的函数')
+        }
+        foo()
+        
+        function bar(name){
+            console.log(this)  // 指向 new 实例的对象 
+            this.name = name
+        }
+
+        var wyh = new bar('123')
+
+        var obj = {
+            foo:function(){
+                console.log(this,'--------')
+                console.log(this.name)
+            },
+            name:'456'
+        }
+        obj.foo(); 
+
+        var btn = document.getElementsByTagName('button')[0]
+        btn.onclick =function(){  // 事件处理函数    
+            console.log(this)   // 触发事件的元素
+        }
+
+    </script>
+</body>
+</html>

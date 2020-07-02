@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数的作用：批量创建对象
+        // 有return 的函数一定不是构造函数
+        var name='do';
+        var color='window调用';
+        //在构造函数中this 指向 new 创建的对象
+        function Animal(type,name,color,eat){
+            console.log(this);
+            
+            this.type = type;
+            this.name=name;
+            this.color=color;
+            this.eat=eat;
+            this.do=function(){
+                // 普通函数 用其他方式判断
+                // 谁调用指向谁 ()
+                alert(this.name+'是'+this.color)
+            }
+        }
+
+        // new 调用的函数就是构造函数
+        // 所有对象都有构造函数 obj.contructor 获取
+        var dog=new Animal('哺乳动物','狗','黄色',function(){
+            console.log('喜欢吃骨头');
+        });
+        var fish=new Animal('水生动物','鱼','金色',function(){
+            console.log('喜欢吃虾米');
+        });
+        dog.eat();
+        fish.eat();
+        dog.do();
+        console.log(dog);
+        console.log(fish);
+        
+        var done=dog.do;
+        done()
+    </script>
+</body>
+</html>

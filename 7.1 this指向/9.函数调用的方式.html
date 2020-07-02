@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.xx.xxx() xxx()
+        // 2.new xxx()
+        // 3.xxx.call() xxx.apply() xxx.bind()()
+        // 4.事件触发
+
+        // function fun(){
+        //     console.log('aaa');  
+        // }
+        // window.fun()
+
+        // var obj={
+        //     fun:fun
+        // }
+        // obj.fun();
+        // new foo();
+
+        // fun.call(window);
+        // fun.apply();
+        // fun.bind()();
+
+        // 立即执行函数
+        // (function (){
+        //     console.log('立即执行函数');
+        // })()
+
+        // (function (){
+        //     console.log('立即执行函数');
+        // }())
+
+        // 函数执行表达式的运算
+        // 多个括号的表达式 从左往右运算 一个运算完才能运算下一个
+        // 函数执行完毕(return)()运算完毕
+        (function () {
+            console.log('立即执行函数');
+            return function () {
+                console.log('立即执行函数');
+                return function () {
+                    console.log('立即执行函数');
+                }
+            }
+        })()()() 
+    </script>
+</body>
+
+</html>
