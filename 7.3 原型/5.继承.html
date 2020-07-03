@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // console.log(null.__proto__)  // Cannot read property '__proto__' of null
+      console.log(Object.prototype.__proto__); // null
+
+      // 原型对象的作用：继承，
+      // 1：面向对象开发（抽象）
+
+      // 继承例子
+      var perso = function (name) {
+        this.name = name;
+      };
+      // 函数原型对象下 api 原则上；必须指向 【构造对象】
+      perso.prototype.getName = function () {
+        return this.name;
+      };
+      perso.prototype.setAge = function (age) {
+        this.age = age;
+      };
+      var obj = {
+        name: "456",
+      };
+      var zc = new perso("123");
+      var res = zc.getName();
+      zc.setAge.call(obj, 21); // 修改了 this 指向
+      console.log(zc);
+      console.log(res);
+      // zc 的 __proto__ 指向的 perso的prototype
+      console.log(zc.__proto__ === perso.prototype);
+      //   console.log(perso.prototype.__proto__ === Object.prototype);
+      console.log(zc.__proto__.__proto__ === Object.prototype, "--------");
+      //   console.log(Object.prototype.__proto__); // null
+      // 原型链
+      console.log(
+        zc.__proto__.__proto__.__proto__ === Object.prototype.__proto__
+      ); // null
+      // 找到null 停止
+
+      // 继承：被继承的属性都可以被继承者直接使用
+      //   console.log(zc.valueOf)  // zc 直接访问 Object.prototype中属性
+
+      // 谈谈你对js 原型的认识
+      // 原型链 继承。
+    </script>
+  </body>
+</html>

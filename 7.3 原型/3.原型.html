@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 入门原型对象
+        // prototype 原型属性 函数特有
+        // ---> 可以给构造函数的原型对象添加api 或者静态属性
+        // ---> 构造函数f 中原型对象A 下的api 可以被new的实例对象B 直接访问 该对象A 也是new 实例B 的原型对象
+        
+        // ---> f 是 B 的构造函数
+        // ---> B 的原型对象__proto__  为 A
+        // ---> A 同时也是 构造函数f 的原型对象
+        // __proto__ 原型对象 js中任何对象都有原型对象
+
+        function Animal(){
+            this.spicel='动物';
+        }
+        console.log(Animal.prototype);// 返回原型对象
+        Animal.prototype.say=function(){
+            console.log('say');
+        }
+        // 获取函数的原型对象
+        console.log(Animal.prototype);
+
+        // 获取函数原型对象的原型对象
+        console.log(Animal.prototype.__proto__,'原型对象的原型对象为普通对象');
+
+        // 1.每个对象都有原型对象 并且constructor 赋值为这个函数 每个原型对象 也有原型对象 但是这个对象为普通对象 构造函数指向Object
+
+        var cat = new Animal();
+        console.log(cat);
+        cat.say();
+    </script>
+</body>
+
+</html>

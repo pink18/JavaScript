@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何清除闭包缓存</title>
+</head>
+<body>
+    <script>
+        function fun(){
+            var a=0;
+            return function(){
+                console.log(a++);
+            }
+        }
+        // 因为 res 引用的 return 返回的函数
+        // 在res执行的时候 需要引用fun 的 AO 对象下的a属性
+        // 所以 fun 的AO对象不会被回收 
+        var res = fun();
+        res();
+        res();
+        // 当闭包完成任务后
+        // 找到完成任务的条件 然后清空res 那么 fun的AO对象就不会在被引用
+        // 所以实现了 清空闭包的缓存
+        res=null;
+
+        // fun 中的 AO 会被回收
+        fun()();// 因为没有任何变量和属性引用return返回的函数 所以ao回收 ao销毁
+    </script>
+</body>
+</html>

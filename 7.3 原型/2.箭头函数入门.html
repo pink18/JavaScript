@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 箭头函数没有this 指向
+        // 箭头函数中this 用的上一层作用域中的this
+
+        // 这就是箭头函数
+        var obj = ()=>{
+            // 上一层作用域 为 全局 所以 window
+            console.log(this);
+        }
+        var fun={
+            obj:obj,
+            bar:bar
+        }
+        fun.obj();
+
+        function bar(){
+            console.log(this);
+            var obj={
+                fun:()=>{
+                    console.log(this);
+                }
+            }
+            obj.fun(); 
+            setTimeout(()=>{
+                console.log(this);
+            },500)
+        }
+        fun.bar();
+        // 箭头函数方法体中没有this
+        // 如何判断箭头函数内部this
+        // 仅看上一层作用域中 this是啥就是啥
+    </script>
+</body>
+</html>
