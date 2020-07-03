@@ -9,46 +9,50 @@
 
 <body>
     <script>
-        // 对象分类(js 是面向对象角度)
-        // 函数对象
-        function fun() {}
-        var bar = new Function()
-        var foo = function () {}
-        // 普通对象：原型对象 构造对象...
-        //          日期对象 数组对象 字符串对象...
-        var obj = new Object();
+      // 对象分类(js 是面向对象的角度)
+      // 函数对象
+      function foo() {} // 函数对象
+      var bar = new Function(); // 函数对象
+      var foo1 = function () {}; // 函数对象
+      // 普通对象: 原型对象，构造对象...
+      // ------> 日期对象 数组对象 字符串对象....
+      var obj = new Object();
+      var f = new foo();
+      // 问题：构造函数的foo的原型对象 与 new 实例对象 f 的原型的对象关系是什么？
+      // f 是 foo 创建的。
+      // foo的原型对象 与 f 的原型对象同一个               （原型角度）
+      // foo.prototype 存的指针；与 f.__proto__ 的指针相同  （内存角度）
+      console.log(foo.prototype === f.__proto__); // true
 
-        var f = new fun();
-        // 问题：构造函数的fun的原型对象 与 new 实例对象 f的原型对象关系是什么
-        // f 是 fun 创建的
-        // fun的原型对象 与 f的原型对象为同一个            (原型角度)
-        // fun.prototype 存的指针 与 f.__proto__的指针相同(内存角度)
-        console.log(fun.prototype === f.__proto__); // true
+      // 区分方式
+      // 函数对象有prototype  ----------------------------> 函数对象的原型对象
+      // 普通独享没有prototype 只有 __proto__属性 ---------> 普通对象的原型对象
 
-        // 区分方式
-        // 函数对象有prototype 函数对象的原型对象
-        // 普通对象没有prototype 只有__proto__属性 普通对象的原型对象
+      // 函数对象的原型对象；是个普通对象。
+      // 特殊 Function 的原型对象 为函数对象,而这个函数对象没有 prototype
+      // console.log(Function.prototype)
+      // console.log(typeof Function)   // fucntion
+      // console.log(typeof Function.prototype)  // function
+      // console.log(typeof Function.prototype.prototype) // undefined
 
-        // 函数对象的原型对象 是个普通对象
-        // Function 的原型对象 为函数对象 但是这个函数对象没有prototype
-        console.log(Function.prototype);
-        console.log(Function.prototype.prototype); // undefined
-        
-        // Function 与 function 的区别是什么
-        // 1.function 的构造函数是Function
-        // 2.function 的原型对象为普通对象 Function 的原型对象为函数对象 并且这个函数对象没有prototype
+      // console.log(Function.prototype.prototype) // undefined
 
-        // var obj = {
-        //     name:'坤坤'
-        // }
+      // Function与 function 的区别是什么？（大厂面试题）
+      // 1:function 的构造函数是 Function
+      // 2:funciton 的原型对象为 普通对象 ，Function 的原型对象为函数对象，并且这个函数对象没有prototype
 
-        // 两个对象中 两个不同的属性；存相同的【指针】
-        // var f = {
-        //     prototype:obj
-        // }
+      // var obj = {
+      //     name:'坤坤'
+      // }
+      
+      // 两个对象中 两个不同的属性；存相同的【指针】
+      // var f = {
+      //     prototype:obj
+      // }
 
-        // var b = {
-        //     __proto__:obj
+      // var b = {
+      //     __proto__:obj
+      // }proto__:obj
         // }
     </script>
 </body>
