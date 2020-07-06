@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap"></div>
+    <script>
+        var styleObj = {
+            width: '100px',
+            height: '100px',
+            backgroundColor: 'red'
+        }
+        var wrap = document.getElementsByTagName('div')[0];
+        // wrap.style.width = styleObj['width'];
+        // wrap.style.height = styleObj['height'];
+        // wrap.style.backgroundColor = styleObj['backgroundColor'];
+
+        // for(var x in styleObj){
+        //     wrap.style[x]=styleObj[x];
+        // }
+
+        setStyle(wrap, styleObj);
+
+        function setStyle(el, styleObj) {
+            for (var x in styleObj) {
+                wrap.style[x] = styleObj[x];
+            }
+        }
+    </script>
+</body>
+
+</html>

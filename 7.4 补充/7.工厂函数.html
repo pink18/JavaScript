@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Animal.prototype.getname = function () {
+            return this.name;
+        }
+        var a = new Animal('123', 18)
+        console.log(a);
+
+        // 工厂函数 创建对象
+        function person(name, age) {
+            return {
+                name: name,
+                age: age,
+                getname: function () {
+                    return this.name;
+                }
+            }
+        }
+        var b = new person('456', 20)
+        console.log(b);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wraper">
+        <div class="box">这是一个html</div>
+        <button class="btn">点击修改</button>
+    </div>
+    <script>
+        var box=document.querySelector('.box');
+        var btn=document.querySelector('.btn');
+
+        // 点击事件 事件处理函数需要用户触发行为才能执行
+        console.log(box);
+        // innerHTML html中的内容
+        btn.onclick=function(){
+            box.innerHTML='修改后的内容';
+        }
+
+        var wraper=document.querySelector('.wraper');
+
+        // 对象取值
+        console.log(wraper.innerHTML);
+
+        // 给innerHTML 重新赋值
+        wraper.innerHTML='<h1>dddd</h1>';
+        // wraper.innerText='<h1>dddd</h1>';
+
+        // 页面中所有信息都是字符串
+        // 页面中标签可以通过dom 选择器 获取dom对象
+
+        // innerHTML 与 innerText 区别
+        // innerHTML 可以放标签
+        // innerText 文本内容
+        // 不论修改哪一个内容 html 中内容都会发生变化 推荐使用innerHTML
+    </script>
+</body>
+</html>

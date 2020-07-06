@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrap"></div>
+    <div class="box"></div>
+    <script>
+        console.log(getElement('.box'));
+        console.log(getElement('#wrap'));
+        console.log(getElement('div'));
+        
+
+
+        // function getElement(el){
+        //     if(arguments.length>1){
+        //         throw new Error('');
+        //     }
+        //     if(typeof el !=='string'){
+        //         throw new Error('');
+        //     }
+        //     if(arguments.length===0){
+        //         return null;
+        //     }
+        //     console.log(el.charAt(0));
+        //     if(el.charAt(0)==='.'){
+        //         return document.querySelectorAll(el);
+        //     }else if(el.charAt(0)==='#'){
+        //         return document.querySelector(el);
+        //     }else{
+        //         return document.querySelectorAll(el);
+        //     }
+        // }
+
+
+        function getElement(el) {
+            if (arguments.length > 1) {
+                throw new Error('');
+            }
+            if (typeof el !== 'string') {
+                throw new Error('');
+            }
+            if (arguments.length === 0) {
+                return null;
+            }
+            // console.log(el.charAt(0));
+            if (el.charAt(0) === '.') {
+                el=el.substr(1);
+                return document.getElementsByClassName(el);
+            } else if (el.charAt(0) === '#') {
+                el=el.substr(1);
+                return document.getElementById(el);
+            } else {
+                return document.getElementsByTagName(el);
+            }
+        }
+    </script>
+</body>
+
+</html>
