@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>都需要删除</h1>
+    <h1>都需要删除</h1>
+    <h1>都需要删除</h1>
+    <h1>都需要删除</h1>
+    <h1>都需要删除</h1>
+    <script>
+        // var h1 = document.querySelectorAll('h1');
+        // for (var i = 0; i < h1.length; i++) {
+        //     h1[i].onclick = function () {
+        //         this.remove();
+        //     }
+        // }
+
+        // for (let i = 0; i < h1.length; i++) {
+        //     h1[i].onclick = function () {
+        //         h1[i].remove();
+        //     }
+        // }
+
+        for (var i = 0; i < h1.length; i++) {
+            (function () {
+                var x=i;
+                h1[i].onclick = function () {
+                    h1[x].remove();
+                }
+            })()
+        }
+        // console.log(h1);
+        // h1[0].onclick = function () {
+        //     h1[0].remove();
+        // }
+        // h1[1].onclick = function () {
+        //     h1[1].remove();
+        // }
+        // h1[2].onclick = function () {
+        //     h1[2].remove();
+        // }
+        // h1[3].onclick = function () {
+        //     h1[3].remove();
+        // }
+        // h1[4].onclick = function () {
+        //     h1[4].remove();
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        .active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button>显示</button>
+    <script>
+        var box = document.getElementsByClassName('box')[0];
+        var btn = document.getElementsByTagName('button')[0];
+        // var count=0;
+        // btn.onclick=function(){
+        //     count++;
+        //     if(count%2==0){
+        //         box.className='box active'
+        //     }else{
+        //         box.className='box hidden'
+        //     }
+
+        // }
+
+        // var flag=true;// true为显示 false隐藏
+        // btn.onclick=function(){
+        //     if(!flag){
+        //         box.className='box'
+        //         flag=true;
+        //     }else{
+        //         box.className='box hidden';
+        //         flag=false;
+        //     }
+        // }
+
+        var flag = true; // true为显示 false为隐藏
+        btn.onclick = function () {
+            flag = !flag;
+            flag ? box.className = 'box' : box.className = 'box hidden';
+        }
+    </script>
+</body>
+
+</html>

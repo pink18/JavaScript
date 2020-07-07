@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <script>
+        // 第一个功能
+        // var flag = true;
+        // var h1 = document.querySelectorAll('h1');
+        // for (var i = 0; i < h1.length; i++) {
+        //     h1[i].onclick = function () {
+        //         flag = !flag;
+        //         flag ? this.style.color = '' : this.style.color = 'blue';
+        //     }
+        // }
+        // console.log(i);
+
+        // 第二个功能
+        // var h1 = document.querySelectorAll('h1');
+        // for (var i = 0; i < h1.length; i++) {
+        //     (function () {
+        //         var flag = true;
+        //         h1[i].onclick = function () {
+        //             flag = !flag;
+        //             flag ? this.style.color = '' : this.style.color = 'blue';
+        //         }
+        //     })();
+        // }
+
+        // var h1 = document.querySelectorAll('h1');
+        // for (var i = 0; i < h1.length; i++) {
+        //     (function () {
+        //         var flag = true;
+        //         var x=i;
+        //         h1[i].onclick = function () {
+        //             flag = !flag;
+        //             flag ? h1[x].style.color = '' : h1[x].style.color = 'blue';
+        //         }
+        //     })();
+        // }
+
+        // var h1 = document.querySelectorAll('h1');
+        // for (var i = 0; i < h1.length; i++) {
+        //     (function () {
+        //         var flag = true;
+        //         // 给5个 h1 dom对象 分别添加私有属性i 并赋不同的初始值
+        //         h1[i].i=i;
+        //         h1[i].onclick = function () {
+        //             flag = !flag;
+        //             flag ? h1[this.i].style.color = '' : h1[this.i].style.color = 'blue';
+        //             console.log(this);
+
+        //         }
+        //     })();
+        // }
+
+
+        var flag = true;
+        var h1 = document.querySelectorAll('h1');
+        for (var i = 0; i < h1.length; i++) {
+            h1[i].flag=true;
+            h1[i].onclick = function () {
+                this.flag = !this.flag;
+                this.flag ? this.style.color = '' : this.style.color = 'blue';
+            }
+        }
+        console.log(i);
+
+        // var h1 = document.querySelectorAll('h1');
+        // for (let i = 0; i < h1.length; i++) {
+
+        //     (function () {
+        //         var flag = true;
+        //         h1[i].onclick = function () {
+        //             flag = !flag;
+        //             flag ? h1[i].style.color = '' : h1[i].style.color = 'blue';
+        //         }
+        //     })()
+        // }
+        // console.log(i);
+    </script>
+</body>
+
+</html>

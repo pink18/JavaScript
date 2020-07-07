@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul>li {
+            margin-bottom: 10px;
+            list-style: none;
+            width: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: aqua;
+            padding: 0px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <p>内容</p>
+            <button>删除</button>
+        </li>
+        <li>
+            <p>内容</p>
+            <button>删除</button>
+        </li>
+        <li>
+            <p>内容</p>
+            <button>删除</button>
+        </li>
+        <li>
+            <p>内容</p>
+            <button>删除</button>
+        </li>
+        <li>
+            <p>内容</p>
+            <button>删除</button>
+        </li>
+    </ul>
+    <script>
+        var btn=document.querySelectorAll('li>button');
+        var li=document.querySelectorAll('li');
+        for(var i=0;i<btn.length;i++){
+            (function(){
+                var x=i;
+                btn[x].onclick=function(){
+                    // li[x].remove();
+                    // 获取li
+                    var parents=btn[x].parentNode;
+                    // 删除li
+                    parents.remove();
+                }
+            })()
+        }
+    </script>
+</body>
+
+</html>

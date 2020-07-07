@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+    <h1>123,456</h1>
+
+    <script>
+        var h1s = document.getElementsByTagName('h1');
+        var h1s1 = h1s[0];
+        var h1s2 = h1s[1];
+        var h1s3 = h1s[2];
+        var h1s4 = h1s[3];
+        var h1s5 = h1s[4];
+
+        (function () {
+            var flag = true;
+            h1s1.onclick = function () {
+                flag = !flag;
+                flag ? h1s1.style.color = '' : h1s1.style.color = 'blue';
+            }
+        })();
+
+        (function () {
+            var flag = true;
+            h1s2.onclick = function () {
+                flag = !flag;
+                flag ? h1s2.style.color = '' : h1s2.style.color = 'blue';
+            }
+        })();
+
+        (function () {
+            var flag = true;
+            h1s3.onclick = function () {
+                flag = !flag;
+                flag ? h1s3.style.color = '' : h1s3.style.color = 'blue';
+            }
+        })();
+
+        (function () {
+            var flag = true;
+            h1s4.onclick = function () {
+                flag = !flag;
+                flag ? h1s4.style.color = '' : h1s4.style.color = 'blue';
+            }
+        })();
+
+        (function () {
+            var flag = true;
+            h1s5.onclick = function () {
+                flag = !flag;
+                flag ? h1s5.style.color = '' : h1s5.style.color = 'blue';
+            }
+        })()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: aqua;
+        }
+
+        input {
+            outline: none;
+            border: 1px solid #ccc;
+            height: 35px;
+            padding-left: 15px;
+            width: 300px;
+            color: #ccc;
+        }
+
+        #add {
+            width: 55px;
+            height: 35px;
+            appearance: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .head {
+            width: 500px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            width: 500px;
+            background-color: #ffffff;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 20px 15px 20px 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="head">
+            <input id="ipt" type="text" placeholder="新增内容">
+            <div><button id="add">新增</button></div>
+        </div>
+        <div class="content">
+            <p>我是内容</p>
+        </div>
+    </main>
+    <script>
+        var ipt = document.querySelector('#ipt');
+        var btn = document.querySelector('#add');
+        var con = document.querySelector('.content');
+
+        btn.onclick = function () {
+            // 获取input 输入框中用户输入的内容
+            var val = ipt.value;
+            // console.log(val);
+            var node = document.createElement('p');
+            node.innerHTML = val;
+            con.appendChild(node);
+            // 清空input 输入框
+            ipt.value='';
+            // val='' // 为什么不行 修改的是AO中的val
+        }
+
+
+    </script>
+</body>
+
+</html>
