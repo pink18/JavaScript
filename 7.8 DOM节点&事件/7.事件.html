@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 第一种绑定事件方式 -->
+    <h1 onclick="this.innerHTML='不点'">点我</h1>
+    <h2 onclick="dong(this)">别动</h2>
+    <h2 class="zm">在吗</h2>
+    <h2 class="bye">分手</h2>
+    <script>
+        // 事件：实现用户与浏览器的交互行为
+        // 事件分类：键盘 鼠标 滚动 浏览器窗口 表单
+        // 交互：一问一答 一行为一响应 用户做出行为 浏览器反应对应效果
+        // 核心知识点(面试)：事件对象 事件机制 事件流 事件句柄 监听事件...
+
+        // 页面加载时 做初始化操作
+        window.onload=function(){
+            // 事件处理函数
+            alert('你好用户，在这里完成页面初始化渲染')
+        }
+
+        function dong(el){
+            el.innerHTML='偏不';   
+        }
+
+        var txt=document.querySelector('.zm');
+        // onclick 点击事件
+        txt.onclick=function(){
+            // 事件处理函数 处理用户行为 浏览器对行为做出的响应
+            this.innerHTML='不在'
+        }
+
+        var bye=document.querySelector('.bye');
+        // IE 不支持
+        bye.addEventListener('click',function(){
+            this.innerHTML='好的'
+        })
+    </script>
+</body>
+</html>

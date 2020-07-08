@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color">
+        <button>黄色</button>
+        <button>蓝色</button>
+        <button>粉色</button>
+        <button>红色</button>
+        <button>绿色</button>
+    </div>
+    <button class="yes">确定</button>
+    <div class="box"></div>
+    <script>
+        var res;
+        var color=document.querySelector('.color');
+        var yes=document.querySelector('.yes');
+        var box=document.querySelector('.box');
+
+        color.addEventListener('click',function(e){
+            if(e.target.innerHTML=='黄色'){
+                yes.addEventListener('click',function(){
+                    box.style.backgroundColor='yellow';
+                })
+            }else if(e.target.innerHTML=='蓝色'){
+                yes.addEventListener('click',function(){
+                    box.style.backgroundColor='blue';
+                })
+            }else if(e.target.innerHTML=='粉色'){
+                yes.addEventListener('click',function(){
+                    box.style.backgroundColor='pink';
+                })
+            }else if(e.target.innerHTML=='红色'){
+                yes.addEventListener('click',function(){
+                    box.style.backgroundColor='red';
+                })
+            }else if(e.target.innerHTML=='绿色'){
+                yes.addEventListener('click',function(){
+                    box.style.backgroundColor='green';
+                })
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

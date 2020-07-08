@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap" data-name="123">内容</div>
+    <script>
+        var wrap=document.getElementsByClassName('wrap')[0];
+        var div=document.querySelector('.wrap');
+        console.log(wrap.nodeType);// Element_node
+        console.log(div.nodeType);
+        var txt=document.createTextNode('bgfbbgf')
+        console.log(txt.nodeType);
+        
+        // getAttribute() 返回某个元素的属性的值
+        console.log(div.getAttribute('data-name'));
+        
+        // nodeType 返回dom树上节点类型
+        // 1 元素节点
+        // 2 属性节点
+        // 3 文本节点
+    </script>
+</body>
+</html>

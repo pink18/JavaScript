@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text">
+        <input type="checkbox">
+        <button>提交</button>
+
+        <select>
+            <option value="china">中国</option>
+            <option value="amican">美国</option>
+            <option value="bangzi">韩国</option>
+        </select>
+    </form>
+
+    <script>
+        // form 的 类数组
+        var formObject = document.querySelector('form');
+        console.log(formObject);
+        console.log(formObject[0]);
+        console.log(formObject[1].checked);
+        console.log(formObject[2]);
+        // 设置 或 修改 checkbox值
+        formObject[1].checked = true;
+        formObject[0].focus();
+
+        // select option 用户选择的是哪一个呢
+        var select = formObject[formObject.length - 1];
+        console.log(select);
+        for (var i = 0; i < select.length; i++) {
+            if (select[i].selected) {
+                console.log(select[i]);
+                console.log(select[i].value);
+            }
+        }
+
+        // 封装方法
+        // 作用 返回 select option 选择的内容
+        function sel(choose) {
+            if(select.nodeType == 0){
+                throw new Error('Failed to execute "sel" on "Element": 1 argument required, but only 0 present.')
+            }
+            var res = null;
+            for (var i = 0; i < choose.length; i++) {
+                if (choose[i].selected) {
+                    res = choose[i].innerHTML;
+                    break;
+                }
+            }
+            return res;
+        }
+
+        console.log(sel(select));
+        
+    </script>
+</body>
+
+</html>

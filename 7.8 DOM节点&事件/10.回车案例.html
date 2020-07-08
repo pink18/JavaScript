@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: aqua;
+        }
+
+        #ipt {
+            outline: none;
+            border: 1px solid #ccc;
+            height: 35px;
+            padding-left: 15px;
+            width: 300px;
+            color: #ccc;
+        }
+
+        #add {
+            width: 55px;
+            height: 35px;
+            appearance: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .head {
+            width: 500px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            width: 500px;
+            background-color: #ffffff;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 20px 15px 20px 45px;
+        }
+
+        .content li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="head">
+            <input id="ipt" type="text" placeholder="新增内容">
+            <div><button id="add">新增</button></div>
+        </div>
+        <div class="content">
+            <ul>
+                <li>
+                    <input type="checkbox">
+                    <span>我是内容</span>
+                    <div class="deletEl">删除</div>
+                </li>
+                <li>
+                    <input type="checkbox">
+                    <span>我是内容</span>
+                    <div class="deletEl">删除</div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        var ipt = document.querySelector('#ipt');
+        var addBtn = document.querySelector('#add');
+        var ul = document.querySelector('.content>ul');
+        dele(); // 初始化执行
+        text();
+
+
+        addBtn.onclick = function () {
+            var val = ipt.value;
+            var liNode = document.createElement('li');
+            var span = document.createElement('span');
+            var div = document.createElement('div');
+            var input = document.createElement('input');
+            div.innerHTML = '删除';
+            div.className = 'deletEl';
+            span.innerHTML = val;
+            input.type = 'checkbox';
+            liNode.appendChild(input);
+            liNode.appendChild(span);
+            liNode.appendChild(div);
+
+            // 把li添加到ul上
+            ul.appendChild(liNode);
+            ipt.value = '';
+            dele(); // 新增列表后 需要重新获取列表 才能删除
+            text();
+
+        }
+
+        function dele() {
+            var div = document.querySelectorAll('.deletEl');
+            for (var i = 0; i < div.length; i++) {
+                (function () {
+                    var x = i;
+                    div[x].onclick = function () {
+                        var parents = div[x].parentNode;
+                        parents.remove();
+                    }
+                })()
+            }
+        }
+
+        function text() {
+            var choose = document.querySelectorAll('li>input');
+            
+            for (var i = 0; i < choose.length; i++) {
+                (function () {
+                    var x = i;
+                    var content=choose[x].nextElementSibling;
+
+                    choose[x].onclick = function () {
+                        if (choose[x].checked ) {
+                            content.style.textDecoration = 'underline';
+                        } else {
+                            content.style.textDecoration = 'none';
+                        }
+                    }
+                })()
+            }
+        }
+
+        document.onkeyup=function(e){
+            var code=e.keyCode
+            if(code==13){// 表示按下回车键
+                addBtn.onclick();
+            }
+        }
+    </script>
+</body>
+
+</html>

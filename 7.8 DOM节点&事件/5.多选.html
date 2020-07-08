@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <div><input type="checkbox" value="1" checked><span>选择的内容</span></div>
+        <div><input type="checkbox" value="2"><span>选择的内容</span></div>
+        <div><input type="checkbox" value="3" checked><span>选择的内容</span></div>
+        <div><input type="checkbox" value="4"><span>选择的内容</span></div>
+        <div><input type="checkbox" value="5" checked><span>选择的内容</span></div>
+    </form>
+    <script>
+        // // 多选
+        // // 如何获取用户勾选内容
+        // var input=document.querySelectorAll('input');
+        // for(var i=0;i<input.length;i++){
+        //     input[i].onclick=function(){
+        //         if(this.checked){
+        //             console.log(this.value);
+        //         }
+        //     }
+        // }
+
+        //  多选：
+        //  问题：如何获取用户勾选了哪些内容，并知道选择的是什么？
+        //  第一步：获取所有的 input=checkBox
+        //  第二步：遍历 input类数组，判断 checked值为true的元素，表示被选中
+        //  第三步：声明已给 checkArr=[]    因为多选，所以用数组，最后将用户选中的内容，元素添加到数组中
+
+        var ipts = document.querySelectorAll('input[type=checkBox]');
+
+        var checkArr = []; //  存放用户选中的元素，以及内容
+        for (var i = 0; i < ipts.length; i++) {
+            if (ipts[i].checked) {
+                checkArr.push({
+                    el: ipts[i],
+                    value: ipts[i].value
+                })
+            }
+        }
+        console.log(checkArr);
+    </script>
+</body>
+
+</html>
