@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="add"></button>
+    <script>
+        var add=document.querySelector('.add');
+        var count=0;
+        add.addEventListener('click',function fun(e){
+            e.stopPropagation();
+            ++count;
+            console.log(count);
+            add.innerHTML=count;
+            // 当count==5 删除add 点击事件
+            if(count===5){
+                // removeEventListener 删除事件句柄
+                // 参一：事件名
+                // 参二：删除事件处理函数
+                // add.removeEventListener('click',fun)
+                removeEvent(add,'click',fun)
+            }
+        })
+
+        // 删除事件句柄的兼容性处理
+        function removeEvent(el,eventName,eventFun){
+            if(el.nodeType!=1){
+                throw new Error('fail "Element":"type is error"')
+            }
+            if(el.removeEventListener){
+                el.removeEventListener(eventName,eventFun);
+            }else{
+                el.detachEvent(eventName,eventFun);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .star>img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .comment>p {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="star">
+        <img src="./img/start1.png" alt="">
+        <img src="./img/start1.png" alt="">
+        <img src="./img/start1.png" alt="">
+        <img src="./img/start1.png" alt="">
+        <img src="./img/start1.png" alt="">
+    </div>
+    <div class="comment">
+        <p>很差</p>
+        <p>差</p>
+        <p>一般</p>
+        <p>好</p>
+        <p>很好</p>
+    </div>
+    <script>
+        var img = document.querySelectorAll('img');
+        var p = document.querySelectorAll('p');
+        var star = document.querySelectorAll('.star');
+
+
+        for (var i = 0; i < img.length; i++) {
+            (function (i) {
+                img[i].onclick = function () {
+                    for (var j = 0; j < img.length; j++) {
+                        img[j].src = './img/start1.png';
+                        p[j].style.display = 'none';
+                    }
+                    for (var j = 0; j <= i; j++) {
+                        img[j].src = './img/start2.png'
+                    }
+                    p[i].style.display = 'block';
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

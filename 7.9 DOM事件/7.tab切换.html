@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>点击内容</h2>
+    <h2>点击内容</h2>
+    <h2>点击内容</h2>
+    <script>
+        var h2 = document.querySelectorAll('h2');
+        for (var i = 0; i < h2.length; i++) {
+            (function (i) {
+                h2[i].addEventListener('click', function () {
+                    for (var j = 0; j < h2.length; j++) {
+                        h2[j].style.color = ''
+                    }
+                    alert(i);
+                    h2[i].style.color = 'red';
+                })
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

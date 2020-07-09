@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 500px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .wrap img {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            display: none;
+        }
+
+        .wrap .show {
+            display: block;
+        }
+
+        #next {
+            right: 0;
+        }
+
+        .btn>div {
+            width: 30px;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            cursor: pointer;
+        }
+
+        ul {
+            display: flex;
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        li {
+            background-color: #999;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .color {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="show" src="./img/1.jpg" alt="">
+        <img src="./img/2.jpg" alt="">
+        <img src="./img/3.jpg" alt="">
+        <div class="btn">
+            <div id="pre"><</div> 
+            <div id="next">></div>
+        </div>
+        <ul>
+            <li class="color"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        // 1: 第一步 ：确认效果初始化 ：1 html+css 2 js方式完成初始化样式
+        // 2：第二步：分析用户行为，---> 给什么元素绑定什么事件？
+        // 3：第三步：事件（行为）发生，哪一个html 元素 发生 css 的动态版画
+        // 完成动态交互；可能需要状态 数据，声明变量然后代表内容。
+        // 注意：表示状态变量；计数器，true/false 1
+        // 1 作用于问题，改变量需要给哪些函数使用，---> 所有使用地方 都能访问到的一个公共的作用域中
+        // 2 变量污染问题。污染--> 分开声明。闭包解决污染物体
+
+        var pre = document.querySelector('#pre');
+        var next = document.querySelector('#next');
+        var img = document.querySelectorAll('img');
+        var li = document.querySelectorAll('li');
+
+        var index = 0;
+        pre.addEventListener('click', function () {
+            for (var i = 0; i < img.length; i++) {
+                img[i].className = '';
+                li[i].className = '';
+
+            }
+            --index;
+            if (index < 0) {
+                index = img.length - 1;
+            }
+            img[index].className = 'show';
+            li[index].className = 'color';
+
+        });
+
+        next.addEventListener('click', function () {
+            for (var i = 0; i < img.length; i++) {
+                img[i].className = '';
+                li[i].className = '';
+
+            }
+            ++index;
+            if (index > 2) {
+                index = 0;
+            }
+            img[index].className = 'show';
+            li[index].className = 'color';
+        });
+
+        for (var i = 0; i < li.length; i++) {
+            (function (i) {
+                li[i].onclick = function () {
+                    // 点击小圆点后 更改当前索引
+                    index = i;
+                    for (var j = 0; j < li.length; j++) {
+                        li[j].className = '';
+                        img[j].className = '';
+                    }
+                    li[i].className = 'color';
+                    img[i].className = 'show';
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

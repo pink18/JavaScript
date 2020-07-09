@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .control {
+            width: 300px;
+            height: 45px;
+            display: flex;
+        }
+
+        .item {
+            width: 100px;
+            height: 45px;
+            border: 1px solid red;
+            text-align: center;
+            line-height: 45px;
+        }
+
+        .content {
+            width: 300px;
+            height: 200px;
+            background-color: skyblue;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+        }
+
+        .tab {
+            width: 100%;
+            display: none;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .active {
+            background-color: salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="control">
+            <div class="item active">选项一</div>
+            <div class="item">选项二</div>
+            <div class="item">选项三</div>
+        </div>
+        <div class="content">
+            <div class="tab show">11111</div>
+            <div class="tab">22222</div>
+            <div class="tab">33333</div>
+        </div>
+    </div>
+    <script>
+        var control = document.querySelectorAll('.item');
+        var tab=document.querySelectorAll('.tab');
+        control = [...control];
+        control.forEach(function (item, index) {
+
+            item.addEventListener('click', function (e) {
+                control.forEach(function (item,index) {
+                    item.className='item';
+                    tab[index].className='tab';  
+                })
+                item.className = 'item active';
+                tab[index].className='tab show';
+            })
+        })
+
+
+        // for(var i=0;i<control.length;i++){
+        //     (function(i){
+        //         control[i].onclick=function(){
+        //             for(var j=0;j<control.length;j++){
+        //                 control[j].className='item';
+        //                 tab[j].className='tab';
+        //             }
+        //             control[i].className='item active';
+        //             tab[i].className='tab show';
+        //         }
+        //     })(i)
+        // }
+
+        // 封装添加class类名的方法
+    </script>
+</body>
+
+</html>

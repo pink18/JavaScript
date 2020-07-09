@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="用户名">
+            <input id="ipt" type="text" name="" id="">
+        </label>
+        <label for="密码">
+            <input type="text" name="" id="">
+        </label>
+        <button>提交</button>
+        <h1></h1>
+        <div>
+            <input type="checkbox" name="" id="check">选择
+        </div>
+    </form>
+    <script>
+        var form=document.querySelector('form');
+        // form.onsubmit=function(e){
+        //     // 阻止浏览器默认行为
+        //     e.preventDefault();
+        //     console.log(e,'提交了');
+        //     // 获取表单输入内容进行提交处理
+        //     console.log(form[0].value);
+        // }
+
+        // var btn=document.querySelector('button');
+        // btn.onclick=function(e){
+        //     e.preventDefault();
+        //     console.log(123);
+        // }
+
+        // input事件
+        var ipt=document.querySelector('#ipt');
+        // var h1=document.querySelector('h1');
+        // // input事件 可以实时监听input输入框的动态
+        // ipt.oninput=function(){
+        //     console.log(ipt.value);
+        //     h1.innerHTML=ipt.value;
+        // }
+
+        // change事件 当input发生时触发
+        // var check=document.querySelector('#check');
+        // check.onchange=function(e){
+        //     console.log('check 发生改变了');
+        //     console.log(e.target.checked);
+        // }
+
+        // 给输入框绑定change 事件
+        // 内容变化 并且失去焦点时触发
+        // ipt.onchange=function(e){
+        //     console.log('输入框 发生改变了');
+        //     console.log(e.target.value);
+        // }
+
+        // 焦点事件
+        ipt.onfocus=function(){
+            console.log('获取焦点');
+        }
+        ipt.onblur=function(){
+            console.log('失去焦点');
+        }
+    </script>
+</body>
+</html>
