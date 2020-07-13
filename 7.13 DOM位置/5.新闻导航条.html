@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+        header{
+            height: 200px;
+            background-color: aqua;
+        }
+        ul{
+            display: flex;
+            background-color: black;
+        }
+        ul>li{
+            width: 150px;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+        li>a{
+            padding: 10px;
+            color: #fff;
+        }
+        .content>p{
+            padding: 50px;
+        }
+        .item{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            animation: ani 0.5s linear;
+        }
+        @keyframes ani{
+            from{
+                height: 0;
+            }
+            to{
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <nav>
+        <ul>
+            <li><a href="">导航1</a></li>
+            <li><a href="">导航2</a></li>
+            <li><a href="">导航3</a></li>
+            <li><a href="">导航4</a></li>
+            <li><a href="">导航5</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+        <p>内容</p>
+    </div>
+    <script>
+        var nav=document.querySelector('nav');
+        window.onscroll=function(){
+            var h=document.documentElement.scrollTop||document.body.scrollTop;
+            if(h>250){
+                nav.className='item';
+            }else{
+                nav.className='';
+            }
+        }
+    </script>
+</body>
+
+</html>
