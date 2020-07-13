@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <input type="checkbox" id="all"><label for="all">全选</label>
+            <input type="checkbox" id="reverse"><label for="reverse">反选</label>
+        </div>
+
+        <div><input type="checkbox" class="check"><label for="123">123</label></div>
+        <div><input type="checkbox" class="check"><label for="123">123</label></div>
+        <div><input type="checkbox" class="check"><label for="123">123</label></div>
+        <div><input type="checkbox" class="check"><label for="123">123</label></div>
+        <div><input type="checkbox" class="check"><label for="123">123</label></div>
+
+    </form>
+    <script>
+        var all = document.querySelector('#all');
+        var reverse = document.querySelector('#reverse');
+        var check = document.querySelectorAll('.check');
+
+        all.addEventListener('click', function () {
+            if (all.checked == true) {
+                for (var i = 0; i < check.length; i++) {
+                    check[i].checked = true;
+                }
+            } else {
+                for (var i = 0; i < check.length; i++) {
+                    check[i].checked = false;
+                }
+            }
+
+        })
+
+        for (var i = 0; i < check.length; i++) {
+            check[i].onclick = function () {
+                for (var j = 0; j < check.length; j++) {
+                    if (check[j].checked == false) {
+                        all.checked = false;
+                        break;
+                    } else {
+                        all.checked = true;
+                    }
+                }
+            }
+        }
+
+        reverse.addEventListener('click', function () {
+            for (var i = 0; i < check.length; i++) {
+                check[i].checked = !check[i].checked;
+            }
+
+            for (var j = 0; j < check.length; j++) {
+                if (check[j].checked == false) {
+                    all.checked = false;
+                    break;
+                } else {
+                    all.checked = true;
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -31,37 +31,9 @@
             height: 200px;
             background-color: white;
             position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: calc(50% - 100px);
+            left: calc(50% - 150px);
             text-align: center;
-        }
-
-        .button {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            font-size: 0;
-            height: 40px;
-            border-top: 1px solid #999;
-        }
-
-        .button>button {
-            width: 50%;
-            line-height: 40px;
-            background-color: #fff;
-            border: none;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .button:before {
-            content: "";
-            width: 1px;
-            height: 40px;
-            position: absolute;
-            left: 50%;
-            background: black;
         }
 
         .close {
@@ -76,10 +48,6 @@
     <button class="btn">点击按钮</button>
     <div class="box">
         <div class="choose">
-            <div class="button">
-                <button>确认</button>
-                <button>取消</button>
-            </div>
             <span class="close">X</span>
         </div>
     </div>
@@ -87,6 +55,7 @@
         var btn = document.querySelector('.btn');
         var box = document.querySelector('.box');
         var close = document.querySelector('.close');
+        var choose = document.querySelector('.choose');
 
         btn.addEventListener('click', function () {
             box.style.display = 'block';
@@ -94,6 +63,23 @@
         close.addEventListener('click', function () {
             box.style.display = 'none';
         });
+
+        choose.addEventListener('mousedown', function (e) {
+            var x = e.offsetX;
+            var y = e.offsetY;
+            // console.log(x,y);
+
+            document.onmousemove = function (e) {
+                choose.style.left = e.clientX - x + 'px';
+                choose.style.top = e.clientY - y + 'px';
+            }
+
+        })
+
+        choose.addEventListener('mouseup', function () {
+            document.onmousemove = null
+
+        })
     </script>
 </body>
 

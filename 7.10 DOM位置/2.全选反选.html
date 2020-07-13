@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <div>
+      <input type="checkbox" class="all" /> <span class="allMsg">全选</span>
+      <input type="checkbox" class="reverse" /> 反选
+    </div>
+    <div><input type="checkbox" class="check" /><span>选项内容</span></div>
+    <div><input type="checkbox" class="check" /><span>选项内容</span></div>
+    <div><input type="checkbox" class="check" /><span>选项内容</span></div>
+    <div><input type="checkbox" class="check" /><span>选项内容</span></div>
+    <div><input type="checkbox" class="check" /><span>选项内容</span></div>
+  </form>
+  <script>
+    var ipts = document.querySelectorAll(".check");
+    ipts = Array.from(ipts);
+    var all = document.querySelector(".all");
+    var allMsg = document.querySelector(".allMsg");
+    var reverse = document.querySelector(".reverse");
+
+    ipts.forEach(function (item) {
+      // item 表示当前 选中的元素
+      item.addEventListener("change", function () {
+        var span = item.nextElementSibling;
+        if (item.checked) {
+          // 选中
+          // 当checkbox 被选中时候；让兄弟元素 字体变色
+          span.style.color = "blue";
+        } else {
+          // 没选中
+          span.style.color = "";
+        }
+
+        isAllChecked();
+      });
+    });
+
+    all.addEventListener("change", function () {
+      console.log(all.checked);
+      // 如果选中全选；选择项目 全部被选中 ；文字变为 全不选；
+      if (all.checked) {
+        ipts.forEach(function (item) {
+          item.checked = true;
+          item.nextElementSibling.style.color = "blue";
+          allMsg.innerHTML = "全不选";
+        });
+      } else {
+        ipts.forEach(function (item) {
+          item.checked = false;
+          item.nextElementSibling.style.color = "";
+          allMsg.innerHTML = "全选";
+        });
+      }
+    });
+
+    // 反选
+    reverse.addEventListener("change", function () {
+      isRevers();
+      isAllChecked();
+    });
+
+    function isAllChecked() {
+      // 判断每一个input 5个是否全部都被选中
+      for (var i = 0; i < ipts.length; i++) {
+        if (ipts[i].checked == false) {
+          all.checked = false;
+          allMsg.innerHTML = "全选";
+          break; // 性能优化的处理
+        } else {
+          all.checked = true;
+          allMsg.innerHTML = "全不选";
+        }
+      }
+    }
+
+    function isRevers() {
+      ipts.forEach(function (item) {
+        // 取反
+        item.checked = !item.checked; // input 的取反处理
+        if (item.checked) {
+          item.nextElementSibling.style.color = "blue";
+        } else {
+          item.nextElementSibling.style.color = "";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
