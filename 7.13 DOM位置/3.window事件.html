@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var body=document.body;
+        // css响应式
+        window.onresize=function(){
+            console.log('视图窗口改变');
+            console.log(innerWidth);// 浏览器视图窗口的宽度
+            // 通过判断视图窗口宽度 设置不同的css样式
+            if(innerWidth>500){
+                body.style.backgroundColor='red';
+            }
+        }
+    </script>
+</body>
+</html>

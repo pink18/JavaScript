@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var box=document.querySelector('.box');
+        // box.addEventListener('click',function(){
+        //     // 通过获取鼠标移动距离 将距离赋值给 元素中的left top属性 实现元素移动效果
+        //     document.onmousemove=function(e){
+        //         box.style.left=e.clientX-50+'px';
+        //         box.style.top=e.clientY-50+'px';
+        //     }
+        // });
+        
+        // 在哪点击在哪拖
+        box.addEventListener('click',function(e){
+            var x=e.offsetX;
+            var y=e.offsetY;
+
+            document.onmousemove=function(e){
+                box.style.left=e.clientX-x+'px';
+                box.style.top=e.clientY-y+'px';
+            }
+        });
+    </script>
+</body>
+</html>
