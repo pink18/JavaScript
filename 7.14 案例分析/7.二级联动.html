@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <select name="" id="province"></select>
+    <select name="" id="city"></select>
+    <script src="./area.js"></script>
+    <script>
+        var province = document.querySelector('#province');
+        var city = document.querySelector('#city');
+
+        for (var i in area) {
+            var sf = document.createElement('option');
+            sf.innerHTML = i;
+            province.appendChild(sf);
+            if (i == province.value) {
+                for (var j in area[i][0]) {
+                    var cs = document.createElement('option');
+                    cs.innerHTML = j;
+                    city.appendChild(cs);
+                }
+            }
+
+        }
+
+        province.onchange = function () {
+            city.innerHTML = '';
+            for (var i in area) {
+                if (i == province.value) {
+                    for (var j in area[i][0]) {
+                        var cs = document.createElement('option');
+                        cs.innerHTML = j;
+                        city.appendChild(cs);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

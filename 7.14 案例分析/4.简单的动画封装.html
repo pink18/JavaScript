@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // $animat 实现动画
+        // el 给哪一个元素
+        // style css样式
+        // time 时间
+
+        var box = document.querySelector('.box');
+
+
+        // function $animt(el, styleus, time) {
+        //     for (var x in styleus) {
+        //         (function () {
+        //             var timer = setInterval(function () {
+        //                 el.style[x] -= getComputedStyle(el)[null][pageXOffset] / (time * 1000 / 72);
+        //                 if (x <= styleus[x]) {
+        //                     box.style[x] = 0.3;
+        //                     clearInterval(timer);
+        //                 }
+        //             }, 72);
+        //         })();
+        //     }
+        // }
+
+        // box.onmouseover = function () {
+        //     var opacity = 1;
+        //     var timer = setInterval(function () {
+        //         opacity -= 0.1;
+        //         box.style.opacity = opacity;
+        //         if (opacity <= 0.3) {
+        //             box.style.opacity = opacity;
+        //             clearInterval(timer);
+        //         }
+        //     }, 100)
+        // }
+
+        function $animat(el, styleus, time) {
+            for (var x in styleus) {
+                var a= getComputedStyle(el, null)[x]
+                console.log(a);
+                el.style[x] = styleus[x];
+                el.style.transition = 'all ' + time;
+            }
+        }
+
+        box.onclick = function () {
+            $animat(box, {
+                opacity: 0.3
+            }, '0.5s');
+        }
+    </script>
+</body>
+
+</html>

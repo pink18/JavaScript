@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content,
+        .box {
+            width: 100%;
+            height: 100%;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: aquamarine;
+        }
+
+        .blue {
+            background-color: aqua;
+        }
+
+        .control {
+            width: 50px;
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translate(0, -50%);
+        }
+
+        .item {
+            width: 100%;
+            height: 60px;
+            background-color: cornsilk;
+            border: 1px solid #fff;
+            text-align: center;
+            line-height: 60px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="box pink"></div>
+        <div class="box green"></div>
+        <div class="box yellow"></div>
+        <div class="box blue"></div>
+    </div>
+    <div class="control">
+        <div class="item">粉色</div>
+        <div class="item">绿色</div>
+        <div class="item">黄色</div>
+        <div class="item">蓝色</div>
+    </div>
+    <script>
+        // 1.tab切换
+        var btn = document.querySelectorAll('.item');
+        var box = document.querySelectorAll('.box');
+        btn[0].style.color = '#fff';
+        btn[0].style.backgroundColor = '#ccc';
+        for (var i = 0; i < btn.length; i++) {
+            (function (i) {
+                btn[i].onclick = function () {
+                    // console.log(btn[i]);
+                    // 点击指定滚动条高度
+                    for (var j = 0; j < btn.length; j++) {
+                        btn[j].style.color = '';
+                        btn[j].style.backgroundColor = '';
+                    }
+                    btn[i].style.color = '#fff';
+                    btn[i].style.backgroundColor = '#ccc';
+
+                    document.documentElement.scrollTop = box[i].offsetTop;
+                }
+            })(i)
+        }
+        // 2.滚动联动
+        // 根据box 滚动高度
+        window.onscroll = function () {
+            // 1.求滚动条滚动高度
+            var h = document.documentElement.scrollTop;
+            // console.log(h);
+            
+            // 2.当前滚动到第几个元素
+            for (var i = 0; i < btn.length; i++) {
+                if (h >= box[i].offsetTop - 50) {
+                    for (var j = 0; j < btn.length; j++) {
+                        btn[j].style.color = '';
+                        btn[j].style.backgroundColor = '';
+                    }
+                    btn[i].style.color = '#fff';
+                    btn[i].style.backgroundColor = '#ccc';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

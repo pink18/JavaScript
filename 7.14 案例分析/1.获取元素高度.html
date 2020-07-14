@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>内容</h1>
+        <h1>内容</h1>
+        <h1>内容</h1>
+        <h1>内容</h1>
+        <h1>内容</h1>
+    </div>
+    <script>
+        var box=document.querySelector('.box');
+        // dom.offsetHeight 获取元素的高度
+        console.log(box.offsetHeight);
+
+        var pageHeight=document.documentElement.offsetHeight;
+        console.log(pageHeight);
+    </script>
+</body>
+</html>
