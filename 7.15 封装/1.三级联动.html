@@ -5,97 +5,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        select {
-            outline: none;
-        }
-    </style>
 </head>
 
 <body>
-    <select name="" id="province"></select>
-    <select name="" id="city"></select>
-    <select name="" id="area"></select>
-
-    <script src="./area.js"></script>
+    <form action="">
+        <select name="pro" id="pro"></select>
+        <select name="city" id="city"></select>
+        <select name="area" id="area"></select>
+    </form>
+    <script src="area.js"></script>
     <script>
-        var pro = document.querySelector('#province');
+        var data = area;
+        var pro = document.querySelector('#pro');
         var city = document.querySelector('#city');
         var Area = document.querySelector('#area');
 
+        //  初始化省份   遍历 data 获取 key 添加到 pro中
         (function () {
-            for (x in data) {
+            creatOption(pro, area);
+        }());
+
+
+        //  初始化市级
+        var cityData = data[pro[0].value][0];
+        console.log(cityData);
+        
+        (function () {
+            creatOption(city, cityData);
+        }());
+
+
+        //  初始化区级
+        (function () {
+            var areaData = cityData[city[0].value];
+            for (var i = 0; i < areaData.length; i++) {
+                creatOption(Area, areaData[i]);
+            }
+        }());
+
+        //  选择省份发生变化时
+        pro.addEventListener('change', function () {
+
+            //  如何获取用户选择了哪一个option
+            //  select.selectedIndex 返回选中，选中的索引值
+            var cityIndex = pro[pro.selectedIndex].value;
+            cityData = data[cityIndex][0];
+
+            //  初始化清空市级
+            city.innerHTML = '';
+            //  更新市级
+            creatOption(city, cityData);
+            //  更新区级
+            var areaIndex = city[city.selectedIndex].value; //  获取市
+            var areaData = cityData[areaIndex]; //   根据市，获取区
+            //  初始化清空区级
+            Area.innerHTML = '';
+            for (var i = 0; i < areaData.length; i++) {
+                creatOption(Area, areaData[i]);
+            }
+        });
+
+        //  当用户选择的市发生变化
+        city.addEventListener('change', function () {
+            //  选择市
+            var areaIndex = city[city.selectedIndex].value;
+            //  根据市获取 区数据
+            var areaData = cityData[areaIndex];
+            console.log(areaData);
+            
+            //  根据 区数据 更新 区 select area
+            //  初始化清空区级
+            Area.innerHTML = '';
+
+            //  更新区
+            for (var i = 0; i < areaData.length; i++) {
+                for (var x in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = x;
+                    option.value = x;
+                    Area.appendChild(option);
+                }
+            }
+
+        });
+
+
+        function creatOption(el, data) {
+            for (var x in data) {
                 var option = document.createElement('option');
                 option.innerHTML = x;
                 option.value = x;
-                pro.appendChild(option);
+                el.appendChild(option);
             }
-        })()
-
-        var cityData = data[pro[0].value][0];
-        (function () {
-            for (var y in cityData) {
-                var option = document.createElement('option');
-                option.innerHTML = y;
-                option.value = y;
-                city.appendChild(option);
-            }
-        })()
-
-
-        var areaData = cityData[city[0].value];
-        (function () {
-            // console.log(areaData);
-            for (var i = 0; i < areaData.length; i++) {
-                for (var a in areaData[i]) {
-                    var option = document.createElement('option');
-                    option.innerHTML = a;
-                    option.value = a;
-                    Area.appendChild(option)
-                }
-            }
-        })()
-
-        // 用户选择省份发生变化时
-        pro.addEventListener('change',function(){
-            city.innerHTML='';
-            var cityIndex=pro[pro.selectedIndex].value;
-            cityData=data[cityIndex][0];
-            for(var y in cityData){
-                var option = document.createElement('option');
-                option.innerHTML = y;
-                option.value = y;
-                city.appendChild(option);
-            }
-
-            Area.innerHTML='';
-            areaData = cityData[city[pro.selectedIndex].value];
-            for (var i = 0; i < areaData.length; i++) {
-                for (var a in areaData[i]) {
-                    var option = document.createElement('option');
-                    option.innerHTML = a;
-                    option.value = a;
-                    Area.appendChild(option)
-                }
-            }
-        })
-
-        city.addEventListener('change',function(){
-            Area.innerHTML='';
-            var areaIndex = city[city.selectedIndex].value;
-            var areaData=cityData[areaIndex];
-            for (var i = 0; i < areaData.length; i++) {
-                for (var a in areaData[i]) {
-                    var option = document.createElement('option');
-                    option.innerHTML = a;
-                    option.value = a;
-                    Area.appendChild(option)
-                }
-            }
-        })
-
-        function creatOpton(el,data){
-            
         }
     </script>
 </body>
