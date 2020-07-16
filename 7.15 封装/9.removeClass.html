@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box wrap a"></div>
+    <script>
+        var box=document.querySelector('.box');
+        removeClass(box,'wrap');// 作用 给元素添加类名
+        /*
+        add
+        */
+
+        function removeClass(el,str){
+            var classes=el.className;
+            classes=classes.split(/\s+/);
+            var res=classes.indexOf(str)!==-1?true:false;
+
+            if(res){
+                var newArr=classes.filter(function(item){
+                    return item !==str;
+                });
+                
+                var newStr=newArr.join(' ');
+                
+                el.className=newStr;
+            }
+            return el;
+        }
+    </script>
+</body>
+</html>

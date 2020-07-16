@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reg=/[^0-9]/g // 除了0-9 其他都匹配
+        var str='dejecfef5489194ecdc';
+        console.log(str.match(reg));
+        var reg3=/[^0-9a-zA-Z]/g;
+        var str1='dej我ecfef548给9194ecd是c';
+        console.log(str1.match(reg3));
+    </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .wraper {
+            position: relative;
+            margin: 0 auto;
+            width: 1146px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .pic {
+            display: flex;
+            position: absolute;
+            left: 0;
+        }
+
+        .ball {
+            display: flex;
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .ball>li {
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+
+        .left,
+        .right {
+            position: absolute;
+            width: 40px;
+            height: 90px;
+            background-color: rgba(0, 0, 0, 0.3);
+            line-height: 90px;
+            text-align: center;
+            transform: translate(0, -50%);
+            top: 50%;
+            cursor: pointer;
+        }
+
+        .right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wraper">
+        <div class="pic">
+            <!-- <img src="./img/lunbo04.jpg" alt=""> -->
+            <img src="./img/lunbo01.jpg" alt="">
+            <img src="./img/lunbo02.jpg" alt="">
+            <img src="./img/lunbo03.jpg" alt="">
+            <img src="./img/lunbo04.jpg" alt="">
+            <img src="./img/lunbo01.jpg" alt="">
+
+        </div>
+        <div class="left"><</div> 
+        <div class="right">></div>
+
+        <ul class="ball">
+            <li style="background-color: red;"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var wraper = document.querySelector('.wraper');
+        var pic = document.querySelector('.pic');
+        var img = document.querySelectorAll('img');
+        var left = document.querySelector('.left');
+        var right = document.querySelector('.right');
+        var ball = document.querySelectorAll('.ball>li');
+        // console.log(wraper.offsetWidth);
+        // pic.style.left=-wraper.offsetWidth+'px';
+
+        var count = 0;
+        // pic.style.left = count * -wraper.offsetWidth + 'px';
+
+        right.addEventListener('click', function () {
+            stop();
+            for (var j = 0; j < ball.length; j++) {
+                ball[j].style.backgroundColor = '#fff';
+            }
+            if (count == img.length - 1) {
+                count = 0;
+                pic.style.left = count * -wraper.offsetWidth + 'px';
+                pic.style.transition = 'none';
+                ball[count].style.backgroundColor = 'red';
+            }
+            count++;
+            pic.style.left = count * -wraper.offsetWidth + 'px';
+            pic.style.transition = 'all 0.3s linear';
+            ball[count].style.backgroundColor = 'red';
+            play();
+        })
+        left.addEventListener('click', function () {
+            stop();
+            for (var j = 0; j < ball.length; j++) {
+                ball[j].style.backgroundColor = '#fff';
+            }
+            if (count <= 0) {
+                count = img.length - 1;
+                pic.style.left = count * -wraper.offsetWidth + 'px';
+                pic.style.transition = 'none';
+                ball[count-1].style.backgroundColor = 'red';
+            }
+            count--;
+            pic.style.left = count * -wraper.offsetWidth + 'px';
+            pic.style.transition = 'all 0.3s linear';
+            ball[count].style.backgroundColor = 'red';
+
+            play();
+        })
+
+        for (var i = 0; i < ball.length; i++) {
+            (function (i) {
+                ball[i].onclick = function () {
+                    stop();
+                    // 点击小圆点后 更改当前索引
+                    count = i - 1;
+                    for (var j = 0; j < ball.length; j++) {
+                        ball[j].style.backgroundColor = '#fff';
+                    }
+                    ball[i].style.backgroundColor = 'red';
+                    play();
+                }
+
+            })(i)
+        }
+
+
+
+        function stop() {
+            clearInterval(timer);
+        }
+
+        function play() {
+            timer = setInterval(function () {
+                for (var j = 0; j < ball.length; j++) {
+                    ball[j].style.backgroundColor = '#fff';
+                }
+                if (count == img.length - 1) {
+                    count = 0;
+                    pic.style.left = count * -wraper.offsetWidth + 'px';
+                    pic.style.transition = 'none';
+                    ball[count].style.backgroundColor = 'red';
+                }
+                count++;
+                pic.style.left = count * -wraper.offsetWidth + 'px';
+                pic.style.transition = 'all 0.3s linear';
+                ball[count].style.backgroundColor = 'red';
+            }, 2000)
+        }
+        play();
+    </script>
+</body>
+
+</html>

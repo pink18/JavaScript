@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div id="box"></div>
+    <script>
+        // 选中html元素 并返回元素对象或数组
+
+        function getElement(str) {
+            if (str.charAt(0) === '.') {
+                return document.getElementsByClassName(str);
+            } else if (str.charAt(0) === '#') {
+                return document.getElementById(str);
+            } else {
+                return document.getElementsByTagName(str);
+            }
+
+        }
+
+        console.log(getElement('div'));
+        console.log(getElement('.box'));
+        console.log(getElement('#box'));
+    </script>
+</body>
+
+</html>

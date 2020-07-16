@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    带匹配字符
+    正则字符
+    结果字符
+
+    一般一个正则字符 匹配一个带匹配字符
+    字符类 是匹配一类字符或者多类字符
+    [] 字符类是泛指的 不是某个特定的
+    <script>
+        // 字符类
+        // 从一类字符中 取出某一个字符
+        var reg1=/人/  // 人 一个正则字符
+        var reg=/[0-9]/g // [0-9] 一个字符类
+        var str='cddcd2632cdc52sdcsd525vdv525fdvfdvdff' // 等待匹配字符
+
+        var reg2=/(日本人美国人)|(韩国人)/g;
+        var str='日本人美国人韩国人';
+        console.log(str.match(reg2));
+    </script>
+</body>
+</html>

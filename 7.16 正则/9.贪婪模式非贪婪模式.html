@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // + ---> {}
+        // * ---> {}
+        // ? 非贪婪模式
+        var str='cfd22222vdfvdfvd533333d1vd6v50dv1dvdv1fev'
+        var reg=/\d{3,5}?/
+        var reg1=/\d{3,5}/
+        console.log(str.match(reg));
+        console.log(str.match(reg1));
+
+        var reg2=/\d+/g // 贪婪模式 尽可能多
+        var reg3=/\d+?/g // 非贪婪
+        console.log(str.match(reg2));
+        console.log(str.match(reg3));
+
+        var reg4=/\d{0,}/g
+        var reg5=/\d*/g
+        console.log(str.match(reg4));
+        console.log(str.match(reg5));
+
+    </script>
+</body>
+</html>

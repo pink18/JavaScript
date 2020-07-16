@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'yyyy-mm-rr';
+        var year = 2020;
+        var mout = 07;
+        var data = 16;
+
+        // var res='2020-07-16'
+
+        var reg = /^(yyyy)[-](mm)[-](rr)$/
+        // console.log(str.match(reg));
+        var res=str.match(reg)[0];
+        RegExp.$1=year;
+        RegExp.$2=mout;
+        RegExp.$3=data;
+
+        console.log(RegExp.$1);
+        console.log(RegExp.$2);
+        console.log(RegExp.$3);
+        
+
+        // 通过反向引用 获取分组中内容
+        // 外部 $1$2$3
+        // $1 第一个分组 匹配结果
+        // $2 第二个分组 匹配结果
+        // $3 第三个分组 匹配结果
+
+        // 正则表达式内部的反向引用
+        var reg=/(.)(lyx)\1{4}\2/g;
+        // (.)---> s
+        // (lyx)---> lyx
+        // \1 ---> s
+        // \1{4} ---> ssss
+        // \2 ---> lyx
+        // slyxsssslyx
+        var str='slyxsssslyxlyxlyxlyxlyxlyx';
+        console.log(str.match(reg));
+    </script>
+</body>
+
+</html>

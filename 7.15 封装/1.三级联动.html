@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <select name="" id="province"></select>
+    <select name="" id="city"></select>
+    <select name="" id="area"></select>
+
+    <script src="./area.js"></script>
+    <script>
+        var pro = document.querySelector('#province');
+        var city = document.querySelector('#city');
+        var Area = document.querySelector('#area');
+
+        (function () {
+            for (x in data) {
+                var option = document.createElement('option');
+                option.innerHTML = x;
+                option.value = x;
+                pro.appendChild(option);
+            }
+        })()
+
+        var cityData = data[pro[0].value][0];
+        (function () {
+            for (var y in cityData) {
+                var option = document.createElement('option');
+                option.innerHTML = y;
+                option.value = y;
+                city.appendChild(option);
+            }
+        })()
+
+
+        var areaData = cityData[city[0].value];
+        (function () {
+            // console.log(areaData);
+            for (var i = 0; i < areaData.length; i++) {
+                for (var a in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = a;
+                    option.value = a;
+                    Area.appendChild(option)
+                }
+            }
+        })()
+
+        // 用户选择省份发生变化时
+        pro.addEventListener('change',function(){
+            city.innerHTML='';
+            var cityIndex=pro[pro.selectedIndex].value;
+            cityData=data[cityIndex][0];
+            for(var y in cityData){
+                var option = document.createElement('option');
+                option.innerHTML = y;
+                option.value = y;
+                city.appendChild(option);
+            }
+
+            Area.innerHTML='';
+            areaData = cityData[city[pro.selectedIndex].value];
+            for (var i = 0; i < areaData.length; i++) {
+                for (var a in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = a;
+                    option.value = a;
+                    Area.appendChild(option)
+                }
+            }
+        })
+
+        city.addEventListener('change',function(){
+            Area.innerHTML='';
+            var areaIndex = city[city.selectedIndex].value;
+            var areaData=cityData[areaIndex];
+            for (var i = 0; i < areaData.length; i++) {
+                for (var a in areaData[i]) {
+                    var option = document.createElement('option');
+                    option.innerHTML = a;
+                    option.value = a;
+                    Area.appendChild(option)
+                }
+            }
+        })
+
+        function creatOpton(el,data){
+            
+        }
+    </script>
+</body>
+
+</html>

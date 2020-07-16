@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var reg=/[0-9][a-z]/g;
+        // 匹配2个字符 每个字符长度为1 第一个字符0-9 第二个字符a-z
+        // 结果字符 数字字母 长度为2
+        var str='a1ddeccee46c41cec4ece51cec';
+        console.log(str.match(reg));
+    </script>
+</body>
+</html>

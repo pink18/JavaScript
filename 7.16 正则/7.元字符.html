@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /[0-9]/g // 匹配0-9
+        var reg = /\d/g // 匹配0-9
+        var reg = /[0-9a-zA-Z_]/g // 数字字母下划线
+        var reg = /[\w]/g // 数字字母下划线
+
+        var reg1 = /^\d[a-zA-Z]$/g; // 仅能匹配字符长度为2开头是数字 结尾是字母
+        var reg2 = /^\d\w*[a-zA-Z]$/g;
+        var str='3d';
+        var str2='2cdddf4651d5dv1d3vdvdf';
+        console.log(str.match(reg1));
+        console.log(str2.match(reg1));
+
+        // 必须以1开头 结尾无所谓 长度不限
+        var reg3=/^[1][^\s]{1,}/g;
+        var str3='1rfefreferf';
+        var str4='ddddddd';
+
+        console.log(str3.match(reg3));
+        console.log(str4.match(reg3));
+
+        // 手机号码 仅开头为1 的11位数字
+        var reg5=/^[1]\d{10}$/g; 
+        var str5='13995632567';
+        var str6='852828628';
+
+        console.log(str5.match(reg5));
+        console.log(str6.match(reg5));
+
+        // 边界类
+        // var str7='你is谁啊';
+        // var reg6=/\B'是'\B/g;// 单词界限
+        // console.log(str7.match(reg6));
+
+        var str7='你is谁is啊';
+        var reg6=/\bis\b/g;// 单词界限
+        console.log(str7.match(reg6));
+    </script>
+</body>
+
+</html>
