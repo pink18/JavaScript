@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        form{
+            width: 485px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px 15px;
+            box-shadow: 5px 5px 5px #cccccc;
+        }
+        .control{
+            width: 100%;
+            padding: 10px 5px;
+        }
+        label{
+            font-size: 14px;
+            color: #2b2b33;
+        }
+        input{
+            outline: none;
+            height: 30px;
+        }
+        p{
+            font-size: 12px;
+            display: inline-block;
+            color: red;
+            opacity: 0;
+        }
+        .login{
+            width: 85%;
+            margin:10px 0 10px 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: #f9f9f9;
+            background-color: aqua;
+            outline: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="control">
+            <label for="">用户名：</label>
+            <input type="text" name="" id="username">
+            <p class="userValue">请输入8-16位数字或字符</p>
+        </div>
+        <div class="control">
+            <label for="">密&#x3000;码：</label>
+            <input type="password" name="" id="password">
+            <p class="passValue">请输入8-12位开头大写的数字字符下划线</p>
+        </div>
+        <div>
+            <button class="login">登录</button>
+        </div>
+    </form>
+    <script>
+        var btn=document.querySelector('.login');
+        var userValue=document.querySelector('.userValue');
+        var passValue=document.querySelector('.passValue');
+        var username=document.querySelector('#username');
+        var password=document.querySelector('#password');
+
+        btn.addEventListener('click',function(e){
+            e.preventDefault();
+            var user=username.value;
+            var pass=password.value;
+            var userReg=/^[0-9a-zA-Z]{8,16}$/;
+            var passReg=/^[A-Z]\w{8,12}$/;// 贪婪匹配 能匹配9不会匹配8
+            userValue.style.opacity=0;
+            passValue.style.opacity=0;
+            if(!userReg.test(user)){
+                userValue.style.opacity=1;
+            }
+            if(!passReg.test(pass)){
+                passValue.style.opacity=1;
+            }
+            if(userReg.test(user) && passReg.test(pass)){
+                alert('登录成功');
+            }
+        })
+    </script>
+</body>
+
+</html>
