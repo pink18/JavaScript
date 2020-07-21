@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        ajax({
+            method:'get',
+            data:{
+                page:1
+            },
+            url:'www.baidu.com',
+            success:function(data){
+                console.log(data);
+            },
+            error:function(err){
+                console.log(err);
+            },
+            async:true
+        })
+        /*
+            ajax(options) 发送http 请求
+            options | Object
+            @method | string get post 表示请求方式
+            @url    | string 表示请求地址
+            @data   | Object 表示请求参数
+            @success| function 表示请求成功后 如何处理响应数据
+            @error  | function 表示请求失败后 如何处理失败情况
+            @async  | Boolean 表示请求的程序 是同步的还是异步的
+        */
+        function ajax(option){
+            // 实例化对象
+            var xhr=new XMLHttpRequest();
+            var {method,data,url,success,error,async} = option;
+            // xhr.open();
+            if(method==='get'||method==='GET'){
+                // 发送get请求
+                // 1.1 处理请求地址和请求参数
+                url = url+'?';
+                for(var x in data){
+                    url += `${x}=${data[x]}&` 
+                }
+                url=url.slice(0,url.length-1);
+                xhr.open(method,url,async);
+                xhr.send();
+
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState===4&&xhr.status===200){
+                        var res=xhr.response;
+                        success(res);
+                    }else{
+                        error(xhr);
+                    }
+                }
+            }
+            if(method==='post'||method==='POST'){
+                var parmas='';
+                for(var x in data){
+                    parmas+=`${x}=${data[x]}&`;
+                }
+                parmas=parmas.slice(0,parmas.length-1);
+                xhr.open(method,url,async);
+                xhr.send(parmas);
+
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState===4&&xhr.status===200){
+                        var res=xhr.response;
+                        success(res);
+                    }else{
+                        error(xhr);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
